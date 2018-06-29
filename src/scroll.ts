@@ -1,0 +1,61 @@
+import { isFunction } from 'util';
+
+/**
+ * 平滑滚动到指定距离
+ *
+ * @param target dom element/window/css selector
+ * @param y 目标位置
+ */
+export function smoothScroll2YPosition(target: any, y: number, callback?: Function) {
+    let $target = $(target);
+    let curY = $target.scrollTop();
+    let distance = Math.abs(curY - y);
+
+    if (distance < 50) {
+        $target.scrollTop(y);
+        return;
+    }
+
+    let speed = Math.round(distance / 50);
+    if (speed >= 20) {
+        speed = 20;
+    }
+    let step = Math.round(distance / 50);
+    let leapY = y > curY ? curY + step : curY - step;
+    let timer = 0;
+    let maxDuration = 0;
+
+    if (y > curY) {
+        for (let i = curY; i < y; i += step) {
+            scrollTo(leapY, timer * speed);
+            maxDuration = timer * speed;
+            leapY += step;
+            if (leapY > y) {
+                leapY = y;
+            }
+            timer++;
+        }
+    } else {
+        for (let i = curY; i > y; i -= step) {
+            scrollTo(leapY, timer * speed);
+            maxDuration = timer * speed;
+            leapY -= step;
+            if (leapY < y) {
+                leapY = y;
+            }
+            timer++;
+        }
+    }
+
+    setTimeout(() => {
+        if (isFunction(callback)) {
+            callback();
+        }
+    }, maxDuration);
+
+    function scrollTo(y: number, duration: number) {
+        setTimeout(function () {
+            $target.scrollTop(y);
+        }, duration);
+    }
+}
