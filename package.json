@@ -4,7 +4,8 @@
   "description": "common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
-    "publish": "npm publish dist"
+    "publish": "npm publish dist",
+    "clean": "rimraf dist"
   },
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "ngPackage": {
@@ -32,6 +33,7 @@
     "rxjs": "5.5.6",
     "tsickle": "0.30.0",
     "typescript": "2.6.2",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "rimraf": "2.6.1"
   }
 }
