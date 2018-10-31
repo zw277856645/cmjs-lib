@@ -6,7 +6,13 @@ import { isFunction } from 'util';
  * @param target dom element/window/css selector
  * @param y 目标位置
  */
+let timeOutFlags: any[] = [];
 export function smoothScroll2YPosition(target: any, y: number, callback?: Function) {
+    if (timeOutFlags.length) {
+        timeOutFlags.forEach(flag => clearTimeout(flag));
+        timeOutFlags = [];
+    }
+
     let $target = $(target);
     let curY = $target.scrollTop();
     let distance = Math.abs(curY - y);
@@ -47,15 +53,15 @@ export function smoothScroll2YPosition(target: any, y: number, callback?: Functi
         }
     }
 
-    setTimeout(() => {
-        if (isFunction(callback)) {
-            callback();
-        }
-    }, maxDuration);
+    timeOutFlags.push(
+        setTimeout(() => {
+            if (isFunction(callback)) {
+                callback();
+            }
+        }, maxDuration)
+    );
 
     function scrollTo(y: number, duration: number) {
-        setTimeout(function () {
-            $target.scrollTop(y);
-        }, duration);
+        timeOutFlags.push(setTimeout(() => $target.scrollTop(y), duration));
     }
 }
