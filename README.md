@@ -1,2 +1,2 @@
 common js lib
-for angular <= 5
+for angular >= 6
