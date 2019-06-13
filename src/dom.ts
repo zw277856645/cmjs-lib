@@ -1,6 +1,7 @@
 // 获取文本框光标位置
 export function getInputCursorIndex(txt: HTMLInputElement) {
     let cursorPosition = -1;
+
     if (txt.selectionStart !== undefined) {
         cursorPosition = txt.selectionStart;
     } else {
@@ -8,6 +9,7 @@ export function getInputCursorIndex(txt: HTMLInputElement) {
         range.moveStart('character', -txt.value.length);
         cursorPosition = range.text.length;
     }
+
     return cursorPosition;
 }
 

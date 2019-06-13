@@ -1,5 +1,3 @@
-import { isFunction } from 'util';
-
 /**
  * 平滑滚动到指定距离
  *
@@ -7,6 +5,7 @@ import { isFunction } from 'util';
  * @param y 目标位置
  */
 let timeOutFlags: any[] = [];
+
 export function smoothScroll2YPosition(target: any, y: number, callback?: Function) {
     if (timeOutFlags.length) {
         timeOutFlags.forEach(flag => clearTimeout(flag));
@@ -55,7 +54,7 @@ export function smoothScroll2YPosition(target: any, y: number, callback?: Functi
 
     timeOutFlags.push(
         setTimeout(() => {
-            if (isFunction(callback)) {
+            if (typeof callback === 'function') {
                 callback();
             }
         }, maxDuration)
