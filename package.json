@@ -1,6 +1,6 @@
 {
   "name": "cmjs-lib",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
