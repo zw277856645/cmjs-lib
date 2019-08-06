@@ -20,18 +20,21 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "peerDependencies": {
+    "@angular/compiler": "^7.2.14",
+    "@angular/compiler-cli": "^7.2.14",
+    "@angular/core": "^7.2.14",
+    "zone.js": "^0.8.26"
+  },
   "devDependencies": {
     "@angular/compiler": "7.2.14",
     "@angular/compiler-cli": "7.2.14",
     "@angular/core": "7.2.14",
-    "@types/jquery": "2.0.43",
     "@types/node": "10.14.5",
     "core-js": "2.4.1",
-    "jquery": "3.2.1",
+    "zone.js": "0.8.26",
     "ng-packagr": "5.1.0",
-    "rxjs": "6.5.1",
     "typescript": "3.2.4",
-    "zone.js": "0.8.29",
     "rimraf": "2.6.1"
   }
 }

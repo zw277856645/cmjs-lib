@@ -4,6 +4,8 @@
  * @param target dom element/window/css selector
  * @param y 目标位置
  */
+import { getScrollTop, setScrollTop } from './dom';
+
 let timeOutFlags: any[] = [];
 
 export function smoothScroll2YPosition(target: any, y: number, callback?: Function) {
@@ -12,13 +14,11 @@ export function smoothScroll2YPosition(target: any, y: number, callback?: Functi
         timeOutFlags = [];
     }
 
-    let $target = $(target);
-    let curY = $target.scrollTop();
+    let curY = getScrollTop(target);
     let distance = Math.abs(curY - y);
 
     if (distance < 50) {
-        $target.scrollTop(y);
-        return;
+        return setScrollTop(target, y);
     }
 
     let speed = Math.round(distance / 50);
@@ -61,6 +61,6 @@ export function smoothScroll2YPosition(target: any, y: number, callback?: Functi
     );
 
     function scrollTo(y: number, duration: number) {
-        timeOutFlags.push(setTimeout(() => $target.scrollTop(y), duration));
+        timeOutFlags.push(setTimeout(() => setScrollTop(target, y), duration));
     }
 }
