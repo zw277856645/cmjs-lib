@@ -65,15 +65,13 @@ export function deepExtend(out: any, ...args: any[]) {
 
 // 各种类型异步转化为 Observable
 export function async2Observable(fn: any): Observable<any> {
-    return defer(() => {
-        if (fn instanceof Observable) {
-            return fn;
-        } else if (fn instanceof Promise) {
-            return from(fn);
-        } else if (typeof fn === 'function') {
-            return async2Observable(fn());
-        } else {
-            return of(fn);
-        }
-    });
+    if (fn instanceof Observable) {
+        return fn;
+    } else if (fn instanceof Promise) {
+        return from(fn);
+    } else if (typeof fn === 'function') {
+        return async2Observable(fn());
+    } else {
+        return of(fn);
+    }
 }
