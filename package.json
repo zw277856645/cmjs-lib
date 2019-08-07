@@ -1,6 +1,6 @@
 {
   "name": "cmjs-lib",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
@@ -24,7 +24,8 @@
     "@angular/compiler": "^7.2.14",
     "@angular/compiler-cli": "^7.2.14",
     "@angular/core": "^7.2.14",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "rxjs": "^6.5.1"
   },
   "devDependencies": {
     "@angular/compiler": "7.2.14",
@@ -35,6 +36,7 @@
     "zone.js": "0.8.26",
     "ng-packagr": "5.1.0",
     "typescript": "3.2.4",
-    "rimraf": "2.6.1"
+    "rimraf": "2.6.1",
+    "rxjs": "6.5.1"
   }
 }

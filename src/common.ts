@@ -1,3 +1,5 @@
+import { defer, from, Observable, of } from 'rxjs';
+
 // 唯一标识
 export function uuid(len: number, radix?: number) {
     let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
@@ -59,4 +61,19 @@ export function deepExtend(out: any, ...args: any[]) {
     }
 
     return out;
+}
+
+// 各种类型异步转化为 Observable
+export function async2Observable(fn: any): Observable<any> {
+    return defer(() => {
+        if (fn instanceof Observable) {
+            return fn;
+        } else if (fn instanceof Promise) {
+            return from(fn);
+        } else if (typeof fn === 'function') {
+            return async2Observable(fn());
+        } else {
+            return of(fn);
+        }
+    });
 }
