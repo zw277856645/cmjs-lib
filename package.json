@@ -21,8 +21,6 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/compiler": "^7.2.14",
-    "@angular/compiler-cli": "^7.2.14",
     "@angular/core": "^7.2.14",
     "zone.js": "^0.8.26",
     "rxjs": "^6.5.1"
