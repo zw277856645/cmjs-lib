@@ -1,4 +1,4 @@
-import { defer, from, Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 
 // 唯一标识
 export function uuid(len: number, radix?: number) {
