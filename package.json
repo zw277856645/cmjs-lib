@@ -1,6 +1,6 @@
 {
   "name": "cmjs-lib",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
@@ -21,9 +21,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "^7.2.14",
-    "zone.js": "^0.8.26",
-    "rxjs": "^6.5.1"
+    "rxjs": "*"
   },
   "devDependencies": {
     "@angular/compiler": "7.2.14",
