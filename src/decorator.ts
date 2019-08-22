@@ -33,8 +33,9 @@ export function Number(fallbackValue: number = 0) {
  * sessionStorage
  *
  * @param key 存储的键名，不提供则使用属性名
+ * @param defaultValue 缓存没有找到值时使用的默认值
  */
-export function SessionStorage(key?: string) {
+export function SessionStorage(key?: string, defaultValue?: any) {
     return function (target: any, propName: string) {
         const rawKey = key || propName;
         let cache: any;
@@ -45,7 +46,7 @@ export function SessionStorage(key?: string) {
                     cache = JSON.parse(sessionStorage.getItem(rawKey));
                 }
 
-                return (cache === null || cache === undefined) ? this[ propName ] : cache;
+                return (cache === null || cache === undefined) ? defaultValue : cache;
             },
             set(value: any) {
                 cache = value;
@@ -59,8 +60,9 @@ export function SessionStorage(key?: string) {
  * localStorage
  *
  * @param key 存储的键名，不提供则使用属性名
+ * @param defaultValue 缓存没有找到值时使用的默认值
  */
-export function LocalStorage(key?: string) {
+export function LocalStorage(key?: string, defaultValue?: any) {
     return function (target: any, propName: string) {
         const rawKey = key || propName;
         let cache: any;
@@ -71,7 +73,7 @@ export function LocalStorage(key?: string) {
                     cache = JSON.parse(localStorage.getItem(rawKey));
                 }
 
-                return (cache === null || cache === undefined) ? this[ propName ] : cache;
+                return (cache === null || cache === undefined) ? defaultValue : cache;
             },
             set(value) {
                 cache = value;
