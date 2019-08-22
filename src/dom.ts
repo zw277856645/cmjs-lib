@@ -65,7 +65,7 @@ export function getOffset(elem: HTMLElement) {
         } while (elem);
     }
 
-    return { left: left, top: top };
+    return { left, top };
 }
 
 export function getScrollTop(ele: Window | Document | Element) {

@@ -29,7 +29,7 @@ export function uuid(len: number, radix?: number) {
 }
 
 // 深度拷贝
-export function deepExtend(out: any, ...args: any[]) {
+export function deepExtend(out: any, ...args: any[]): any {
     if ((typeof out !== 'object' && typeof out !== 'function') || out === null) {
         if (args.length === 0) {
             return out;
@@ -42,9 +42,7 @@ export function deepExtend(out: any, ...args: any[]) {
 
     out = out || {};
 
-    for (let i = 0; i < args.length; i++) {
-        let obj = args[ i ];
-
+    for (let obj of args) {
         if (!obj) {
             continue;
         }
