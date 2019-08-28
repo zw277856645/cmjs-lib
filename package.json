@@ -1,7 +1,7 @@
 {
   "name": "cmjs-lib",
-  "version": "0.4.4",
-  "description": "common js lib",
+  "version": "0.4.5",
+  "description": "angular common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
     "publish": "npm publish dist",
@@ -19,8 +19,12 @@
     "type": "git",
     "url": "https://gitlab.com/zw277856645/cmjs-lib"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "angular",
+    "common",
+    "lib"
+  ],
+  "author": "wei.zhang",
   "license": "MIT",
   "peerDependencies": {
     "@angular/core": "^8.1.2",

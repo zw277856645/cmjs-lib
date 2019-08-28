@@ -3,6 +3,6 @@ window.$docsify = {
     subMaxLevel: 3,
     coverpage: true,
     auto2top: true,
-    homepage: 'main.md',
+    homepage: 'animation.md',
     repo: 'https://gitlab.com/zw277856645/cmjs-lib'
 };
