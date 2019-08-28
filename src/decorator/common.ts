@@ -20,6 +20,7 @@ function propDecoratorFactory<T, D>(fallback: (v: T) => D): (target: any, propNa
 }
 
 export function InputBoolean() {
+    // tslint:disable-next-line:triple-equals
     return propDecoratorFactory((value: any) => value != null && `${value}` !== 'false');
 }
 

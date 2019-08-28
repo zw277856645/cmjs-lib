@@ -6,7 +6,8 @@
     "build": "ng-packagr -p package.json",
     "publish": "npm publish dist",
     "clean": "rimraf dist",
-    "lint": "tslint -c tslint.json -p tsconfig.json"
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "doc": "docsify serve docs --open"
   },
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "ngPackage": {
@@ -22,16 +23,19 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "*",
-    "rxjs": "*"
+    "@angular/core": "^8.1.2",
+    "@angular/animations": "^8.1.2",
+    "rxjs": "^6.5.1",
+    "zone.js": "^0.9.1"
   },
   "devDependencies": {
-    "@angular/compiler": "7.2.14",
-    "@angular/compiler-cli": "7.2.14",
-    "@angular/core": "7.2.14",
+    "@angular/compiler": "8.1.2",
+    "@angular/compiler-cli": "8.1.2",
+    "@angular/core": "8.1.2",
+    "@angular/animations": "8.1.2",
     "@types/node": "10.14.5",
     "core-js": "2.4.1",
-    "zone.js": "0.8.26",
+    "zone.js": "0.9.1",
     "ng-packagr": "5.1.0",
     "typescript": "3.2.4",
     "rimraf": "2.6.1",

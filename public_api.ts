@@ -9,3 +9,5 @@ export * from './src/decorator/session-storage';
 
 export * from './src/service/local-storage.service';
 export * from './src/service/session-storage.service';
+
+export * from './src/animation/index';
