@@ -56,8 +56,13 @@ window.$docsify.markdown.renderer.code = (function (codeFn) {
                     ),
                     deepExtend(
                         {
-                            height: 320,
-                            width: '100%'
+                            height: 400,
+                            width: '100%',
+                            view: 'preview',
+                            hideExplorer: true,
+                            hideNavigation: true,
+                            forceEmbedLayout: true,
+                            openFile: `${fileName}.ts`
                         },
                         embedConfig
                     )
