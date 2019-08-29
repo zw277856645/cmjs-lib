@@ -43,6 +43,13 @@ export class ExampleComponent {
 ### bounceDropIn
 
 ``` angular
+import { Component } from '@angular/core';
+
+@Component({
+    template: `<div>11</div>`
+})
+export class BounceDropComponent {
+}
 ```
 
 ## 公共成员方法
