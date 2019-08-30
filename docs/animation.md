@@ -44,11 +44,23 @@ export class ExampleComponent {
 
 ``` angular
 import { Component } from '@angular/core';
+import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
+import { bounceDropIn } from './anim.ts';
 
 @Component({
-    template: `<div>11</div>`
+    template: `
+        <div class="anim-item"
+             [@bounceDropIn]="state"
+             (@bounceDropIn.done)="state = 'stop'"
+             (click)="state = 'run'">Click me</div>
+    `,
+    styleUrls: [ 'style.css' ],
+    animations: [
+        trigger('bounceDropIn', [ transition('stop => run', [ useAnimation(bounceDropIn()) ]) ])
+    ]
 })
 export class BounceDropComponent {
+    state = 'stop';
 }
 ```
 

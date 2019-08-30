@@ -31,7 +31,7 @@ export function bounceDropIn(options?: BounceDropInOptions) {
     return animation(
         animate(
             parseTimings({
-                duration: duration || 800,
+                duration: duration || 1000,
                 delay,
                 easing
             }),
