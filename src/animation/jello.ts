@@ -1,4 +1,4 @@
-import { AnimOptions, parseTimings } from './util';
+import { AnimOptions } from './util';
 import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
 
 export interface JelloInOptions extends AnimOptions {
@@ -18,27 +18,10 @@ export interface JelloInOptions extends AnimOptions {
     percent88?: string;
 }
 
-export function jelloIn(options?: JelloInOptions) {
-    let {
-        percent22,
-        percent33,
-        percent44,
-        percent55,
-        percent66,
-        percent77,
-        percent88,
-        duration,
-        delay,
-        easing
-    } = options || {} as JelloInOptions;
-
+export function jelloIn(options: JelloInOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ transform: 'translate3d(0, 0, 0)', offset: 0 }),
                 style({ transform: 'translate3d(0, 0, 0)', offset: 0.111 }),
@@ -54,13 +37,17 @@ export function jelloIn(options?: JelloInOptions) {
         ),
         {
             params: {
-                percent22: percent22 || '-12.5deg',
-                percent33: percent33 || '6.25deg',
-                percent44: percent44 || '-3.125deg',
-                percent55: percent55 || '1.5625deg',
-                percent66: percent66 || '-0.78125deg',
-                percent77: percent77 || '0.390625deg',
-                percent88: percent88 || '-0.1953125deg'
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
+                percent22: options.percent22 || '-12.5deg',
+                percent33: options.percent33 || '6.25deg',
+                percent44: options.percent44 || '-3.125deg',
+                percent55: options.percent55 || '1.5625deg',
+                percent66: options.percent66 || '-0.78125deg',
+                percent77: options.percent77 || '0.390625deg',
+                percent88: options.percent88 || '-0.1953125deg'
             }
         }
     );
@@ -68,6 +55,6 @@ export function jelloIn(options?: JelloInOptions) {
 
 /* triggers */
 
-export function jello(options?: JelloInOptions, name: string = 'jello') {
+export function jello(options: JelloInOptions = {}, name: string = 'jello') {
     return trigger(name, [ transition(':enter', [ useAnimation(jelloIn(options)) ]) ]);
 }

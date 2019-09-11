@@ -1,4 +1,4 @@
-import { AnimOptions, commonTriggerCreator, CommonTriggerOptions, parseTimings } from './util';
+import { AnimOptions, commonTriggerCreator, CommonTriggerOptions } from './util';
 import { animate, animation, keyframes, style } from '@angular/animations';
 
 /* zoom in */
@@ -8,22 +8,24 @@ export interface ZoomInOptions extends AnimOptions {
     startScale?: number;
 }
 
-export function zoomIn(options?: ZoomInOptions) {
-    let { startScale, duration, delay, easing } = options || {} as ZoomInOptions;
-
+export function zoomIn(options: ZoomInOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 800,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ transform: 'scale3d({{ scale }}, {{ scale }}, {{ scale }})', opacity: 0, offset: 0 }),
                 style({ transform: 'scale3d(1, 1, 1)', opacity: 1, offset: 0.5 })
             ])
         ),
-        { params: { scale: startScale || 0.3 } }
+        {
+            params: {
+                duration: options.duration || 800,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
+                scale: options.startScale || 0.3
+            }
+        }
     );
 }
 
@@ -34,23 +36,25 @@ export interface ZoomOutOptions extends AnimOptions {
     endScale?: number;
 }
 
-export function zoomOut(options?: ZoomOutOptions) {
-    let { endScale, duration, delay, easing } = options || {} as ZoomOutOptions;
-
+export function zoomOut(options: ZoomOutOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 800,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ opacity: 1, offset: 0 }),
                 style({ transform: 'scale3d({{ scale }}, {{ scale }}, {{ scale }})', opacity: 0, offset: 0.5 }),
                 style({ opacity: 0, offset: 1 })
             ])
         ),
-        { params: { scale: endScale || 0.3 } }
+        {
+            params: {
+                duration: options.duration || 800,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
+                scale: options.endScale || 0.3
+            }
+        }
     );
 }
 
@@ -58,7 +62,7 @@ export function zoomOut(options?: ZoomOutOptions) {
 
 export type ZoomTriggerOptions = CommonTriggerOptions<ZoomInOptions, ZoomOutOptions>;
 
-export function zoom(options?: ZoomTriggerOptions, name: string = 'zoom') {
+export function zoom(options: ZoomTriggerOptions = {}, name: string = 'zoom') {
     return commonTriggerCreator(name, options, zoomIn, zoomOut);
 }
 
@@ -76,43 +80,41 @@ function zoomXFormatTransform(scaleAttr: string, translateAttr: string) {
 }
 
 function zoomInXBase(options: ZoomInXOptions, defs: ZoomInXOptions) {
-    let { percent0, percent60, duration, delay, easing } = options || {} as ZoomInXOptions;
-    let style0 = {
-            opacity: 0,
-            transform: zoomXFormatTransform('{{ percent0A }}', '{{ percent0B }}'),
-            'animation-timing-function': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)'
-        },
-        style60 = {
-            opacity: 1,
-            transform: zoomXFormatTransform('{{ percent60A }}', '{{ percent60B }}'),
-            'animation-timing-function': 'cubic-bezier(0.175, 0.885, 0.32, 1)'
-        };
-
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
-                style({ ...style0, offset: 0 }),
-                style({ ...style60, offset: 0.6 })
+                style({
+                    opacity: 0,
+                    transform: zoomXFormatTransform('{{ percent0A }}', '{{ percent0B }}'),
+                    'animation-timing-function': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+                    offset: 0
+                }),
+                style({
+                    opacity: 1,
+                    transform: zoomXFormatTransform('{{ percent60A }}', '{{ percent60B }}'),
+                    'animation-timing-function': 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+                    offset: 0.6
+                })
             ])
         ),
         {
             params: {
-                percent0A: (percent0 && percent0.scale) || defs.percent0.scale,
-                percent0B: (percent0 && percent0.translateX) || defs.percent0.translateX,
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
 
-                percent60A: (percent60 && percent60.scale) || defs.percent60.scale,
-                percent60B: (percent60 && percent60.translateX) || defs.percent60.translateX
+                percent0A: (options.percent0 && options.percent0.scale) || defs.percent0.scale,
+                percent0B: (options.percent0 && options.percent0.translateX) || defs.percent0.translateX,
+
+                percent60A: (options.percent60 && options.percent60.scale) || defs.percent60.scale,
+                percent60B: (options.percent60 && options.percent60.translateX) || defs.percent60.translateX
             }
         }
     );
 }
 
-export function zoomInLeft(options?: ZoomInXOptions) {
+export function zoomInLeft(options: ZoomInXOptions = {}) {
     return zoomInXBase(options, {
         percent0: {
             scale: 0.1,
@@ -125,7 +127,7 @@ export function zoomInLeft(options?: ZoomInXOptions) {
     });
 }
 
-export function zoomInRight(options?: ZoomInXOptions) {
+export function zoomInRight(options: ZoomInXOptions = {}) {
     return zoomInXBase(options, {
         percent0: {
             scale: 0.1,
@@ -152,43 +154,41 @@ function zoomYFormatTransform(scaleAttr: string, translateAttr: string) {
 }
 
 function zoomInYBase(options: ZoomInYOptions, defs: ZoomInYOptions) {
-    let { percent0, percent60, duration, delay, easing } = options || {} as ZoomInYOptions;
-    let style0 = {
-            opacity: 0,
-            transform: zoomYFormatTransform('{{ percent0A }}', '{{ percent0B }}'),
-            'animation-timing-function': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)'
-        },
-        style60 = {
-            opacity: 1,
-            transform: zoomYFormatTransform('{{ percent60A }}', '{{ percent60B }}'),
-            'animation-timing-function': 'cubic-bezier(0.175, 0.885, 0.32, 1)'
-        };
-
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
-                style({ ...style0, offset: 0 }),
-                style({ ...style60, offset: 0.6 })
+                style({
+                    opacity: 0,
+                    transform: zoomYFormatTransform('{{ percent0A }}', '{{ percent0B }}'),
+                    'animation-timing-function': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+                    offset: 0
+                }),
+                style({
+                    opacity: 1,
+                    transform: zoomYFormatTransform('{{ percent60A }}', '{{ percent60B }}'),
+                    'animation-timing-function': 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+                    offset: 0.6
+                })
             ])
         ),
         {
             params: {
-                percent0A: (percent0 && percent0.scale) || defs.percent0.scale,
-                percent0B: (percent0 && percent0.translateY) || defs.percent0.translateY,
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
 
-                percent60A: (percent60 && percent60.scale) || defs.percent60.scale,
-                percent60B: (percent60 && percent60.translateY) || defs.percent60.translateY
+                percent0A: (options.percent0 && options.percent0.scale) || defs.percent0.scale,
+                percent0B: (options.percent0 && options.percent0.translateY) || defs.percent0.translateY,
+
+                percent60A: (options.percent60 && options.percent60.scale) || defs.percent60.scale,
+                percent60B: (options.percent60 && options.percent60.translateY) || defs.percent60.translateY
             }
         }
     );
 }
 
-export function zoomInTop(options?: ZoomInYOptions) {
+export function zoomInTop(options: ZoomInYOptions = {}) {
     return zoomInYBase(options, {
         percent0: {
             scale: 0.1,
@@ -201,7 +201,7 @@ export function zoomInTop(options?: ZoomInYOptions) {
     });
 }
 
-export function zoomInBottom(options?: ZoomInYOptions) {
+export function zoomInBottom(options: ZoomInYOptions = {}) {
     return zoomInYBase(options, {
         percent0: {
             scale: 0.1,
@@ -224,44 +224,42 @@ export interface ZoomOutXOptions extends AnimOptions {
 }
 
 function zoomOutXBase(options: ZoomOutXOptions, endOrigin: string, defs: ZoomOutXOptions) {
-    let { percent40, percent100, duration, delay, easing } = options || {} as ZoomOutXOptions;
-    let style40 = {
-            opacity: 1,
-            transform: zoomXFormatTransform('{{ percent40A }}', '{{ percent40B }}')
-        },
-        style100 = {
-            opacity: 0,
-            transform: zoomXFormatTransform('{{ percent100A }}', '{{ percent100B }}'),
-            'transform-origin': '{{ endOrigin }}'
-        };
-
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
-                style({ ...style40, offset: 0.4 }),
-                style({ ...style100, offset: 1 })
+                style({
+                    opacity: 1,
+                    transform: zoomXFormatTransform('{{ percent40A }}', '{{ percent40B }}'),
+                    offset: 0.4
+                }),
+                style({
+                    opacity: 0,
+                    transform: zoomXFormatTransform('{{ percent100A }}', '{{ percent100B }}'),
+                    'transform-origin': '{{ endOrigin }}',
+                    offset: 1
+                })
             ])
         ),
         {
             params: {
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
                 endOrigin,
 
-                percent40A: (percent40 && percent40.scale) || defs.percent40.scale,
-                percent40B: (percent40 && percent40.translateX) || defs.percent40.translateX,
+                percent40A: (options.percent40 && options.percent40.scale) || defs.percent40.scale,
+                percent40B: (options.percent40 && options.percent40.translateX) || defs.percent40.translateX,
 
-                percent100A: (percent100 && percent100.scale) || defs.percent100.scale,
-                percent100B: (percent100 && percent100.translateX) || defs.percent100.translateX
+                percent100A: (options.percent100 && options.percent100.scale) || defs.percent100.scale,
+                percent100B: (options.percent100 && options.percent100.translateX) || defs.percent100.translateX
             }
         }
     );
 }
 
-export function zoomOutLeft(options?: ZoomOutXOptions) {
+export function zoomOutLeft(options: ZoomOutXOptions = {}) {
     return zoomOutXBase(options, 'left center', {
         percent40: {
             scale: 0.475,
@@ -274,7 +272,7 @@ export function zoomOutLeft(options?: ZoomOutXOptions) {
     });
 }
 
-export function zoomOutRight(options?: ZoomOutXOptions) {
+export function zoomOutRight(options: ZoomOutXOptions = {}) {
     return zoomOutXBase(options, 'right center', {
         percent40: {
             scale: 0.475,
@@ -297,44 +295,42 @@ export interface ZoomOutYOptions extends AnimOptions {
 }
 
 function zoomOutYBase(options: ZoomOutYOptions, endOrigin: string, defs: ZoomOutYOptions) {
-    let { percent40, percent100, duration, delay, easing } = options || {} as ZoomOutYOptions;
-    let style40 = {
-            opacity: 1,
-            transform: zoomYFormatTransform('{{ percent40A }}', '{{ percent40B }}')
-        },
-        style100 = {
-            opacity: 0,
-            transform: zoomYFormatTransform('{{ percent100A }}', '{{ percent100B }}'),
-            'transform-origin': '{{ endOrigin }}'
-        };
-
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
-                style({ ...style40, offset: 0.4 }),
-                style({ ...style100, offset: 1 })
+                style({
+                    opacity: 1,
+                    transform: zoomYFormatTransform('{{ percent40A }}', '{{ percent40B }}'),
+                    offset: 0.4
+                }),
+                style({
+                    opacity: 0,
+                    transform: zoomYFormatTransform('{{ percent100A }}', '{{ percent100B }}'),
+                    'transform-origin': '{{ endOrigin }}',
+                    offset: 1
+                })
             ])
         ),
         {
             params: {
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
                 endOrigin,
 
-                percent40A: (percent40 && percent40.scale) || defs.percent40.scale,
-                percent40B: (percent40 && percent40.translateY) || defs.percent40.translateY,
+                percent40A: (options.percent40 && options.percent40.scale) || defs.percent40.scale,
+                percent40B: (options.percent40 && options.percent40.translateY) || defs.percent40.translateY,
 
-                percent100A: (percent100 && percent100.scale) || defs.percent100.scale,
-                percent100B: (percent100 && percent100.translateY) || defs.percent100.translateY
+                percent100A: (options.percent100 && options.percent100.scale) || defs.percent100.scale,
+                percent100B: (options.percent100 && options.percent100.translateY) || defs.percent100.translateY
             }
         }
     );
 }
 
-export function zoomOutTop(options?: ZoomOutYOptions) {
+export function zoomOutTop(options: ZoomOutYOptions = {}) {
     return zoomOutYBase(options, 'center top', {
         percent40: {
             scale: 0.475,
@@ -347,7 +343,7 @@ export function zoomOutTop(options?: ZoomOutYOptions) {
     });
 }
 
-export function zoomOutBottom(options?: ZoomOutYOptions) {
+export function zoomOutBottom(options: ZoomOutYOptions = {}) {
     return zoomOutYBase(options, 'center bottom', {
         percent40: {
             scale: 0.475,
@@ -364,19 +360,19 @@ export function zoomOutBottom(options?: ZoomOutYOptions) {
 
 export type ZoomXTriggerOptions = CommonTriggerOptions<ZoomInXOptions, ZoomOutXOptions>;
 
-export function zoomLeft(options?: ZoomXTriggerOptions, name: string = 'zoomLeft') {
+export function zoomLeft(options: ZoomXTriggerOptions = {}, name: string = 'zoomLeft') {
     return commonTriggerCreator(name, options, zoomInLeft, zoomOutLeft);
 }
 
-export function zoomRight(options?: ZoomXTriggerOptions, name: string = 'zoomRight') {
+export function zoomRight(options: ZoomXTriggerOptions = {}, name: string = 'zoomRight') {
     return commonTriggerCreator(name, options, zoomInRight, zoomOutRight);
 }
 
-export function zoomLeftToRight(options?: ZoomXTriggerOptions, name: string = 'zoomLeftToRight') {
+export function zoomLeftToRight(options: ZoomXTriggerOptions = {}, name: string = 'zoomLeftToRight') {
     return commonTriggerCreator(name, options, zoomInLeft, zoomOutRight);
 }
 
-export function zoomRightToLeft(options?: ZoomXTriggerOptions, name: string = 'zoomRightToLeft') {
+export function zoomRightToLeft(options: ZoomXTriggerOptions = {}, name: string = 'zoomRightToLeft') {
     return commonTriggerCreator(name, options, zoomInRight, zoomOutLeft);
 }
 
@@ -384,10 +380,10 @@ export function zoomRightToLeft(options?: ZoomXTriggerOptions, name: string = 'z
 
 export type ZoomYTriggerOptions = CommonTriggerOptions<ZoomInYOptions, ZoomOutYOptions>;
 
-export function zoomTop(options?: ZoomYTriggerOptions, name: string = 'zoomTop') {
+export function zoomTop(options: ZoomYTriggerOptions = {}, name: string = 'zoomTop') {
     return commonTriggerCreator(name, options, zoomInTop, zoomOutTop);
 }
 
-export function zoomBottom(options?: ZoomYTriggerOptions, name: string = 'zoomBottom') {
+export function zoomBottom(options: ZoomYTriggerOptions = {}, name: string = 'zoomBottom') {
     return commonTriggerCreator(name, options, zoomInBottom, zoomOutBottom);
 }

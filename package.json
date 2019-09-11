@@ -1,6 +1,6 @@
 {
   "name": "cmjs-lib",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "angular common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
@@ -29,6 +29,7 @@
   "peerDependencies": {
     "@angular/core": "^8.1.2",
     "@angular/animations": "^8.1.2",
+    "@angular/platform-browser-dynamic": "^8.1.2",
     "rxjs": "^6.5.1",
     "zone.js": "^0.9.1"
   },
@@ -41,7 +42,7 @@
     "core-js": "2.4.1",
     "zone.js": "0.9.1",
     "ng-packagr": "5.1.0",
-    "typescript": "3.2.4",
+    "typescript": "3.4.5",
     "rimraf": "2.6.1",
     "rxjs": "6.5.1",
     "tslint": "5.11.0",

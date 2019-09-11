@@ -1,4 +1,4 @@
-import { AnimOptions, parseTimings } from './util';
+import { AnimOptions } from './util';
 import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
 
 export interface JackInTheBoxInOptions extends AnimOptions {
@@ -10,47 +10,45 @@ export interface JackInTheBoxInOptions extends AnimOptions {
     percent70?: { scale?: string; };
 }
 
-export function jackInTheBoxIn(options?: JackInTheBoxInOptions) {
-    let { percent0, percent50, percent70, duration, delay, easing } = options || {} as JackInTheBoxInOptions;
-    let style0 = {
-            opacity: 0,
-            transform: 'scale({{ percent0A }}) rotate({{ percent0B }})',
-            'transform-origin': 'center bottom'
-        },
-        style50 = {
-            opacity: 0.5,
-            transform: 'rotate({{ percent50 }})'
-        },
-        style70 = {
-            opacity: 0.7,
-            transform: 'rotate({{ percent70 }})'
-        },
-        style100 = {
-            opacity: 1,
-            transform: 'scale(1)'
-        };
-
+export function jackInTheBoxIn(options: JackInTheBoxInOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 800,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
-                style({ ...style0, offset: 0 }),
-                style({ ...style50, offset: 0.5 }),
-                style({ ...style70, offset: 0.7 }),
-                style({ ...style100, offset: 1 })
+                style({
+                    opacity: 0,
+                    transform: 'scale({{ percent0A }}) rotate({{ percent0B }})',
+                    'transform-origin': 'center bottom',
+                    offset: 0
+                }),
+                style({
+                    opacity: 0.5,
+                    transform: 'rotate({{ percent50 }})',
+                    offset: 0.5
+                }),
+                style({
+                    opacity: 0.7,
+                    transform: 'rotate({{ percent70 }})',
+                    offset: 0.7
+                }),
+                style({
+                    opacity: 1,
+                    transform: 'scale(1)',
+                    offset: 1
+                })
             ])
         ),
         {
             params: {
-                percent0A: (percent0 && percent0.scale) || 0.1,
-                percent0B: (percent0 && percent0.rotate) || '30deg',
+                duration: options.duration || 800,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
 
-                percent50: (percent50 && percent50.scale) || '-10deg',
-                percent70: (percent70 && percent70.scale) || '3deg'
+                percent0A: (options.percent0 && options.percent0.scale) || 0.1,
+                percent0B: (options.percent0 && options.percent0.rotate) || '30deg',
+
+                percent50: (options.percent50 && options.percent50.scale) || '-10deg',
+                percent70: (options.percent70 && options.percent70.scale) || '3deg'
             }
         }
     );
@@ -58,6 +56,6 @@ export function jackInTheBoxIn(options?: JackInTheBoxInOptions) {
 
 /* triggers */
 
-export function jackInTheBox(options?: JackInTheBoxInOptions, name: string = 'jackInTheBox') {
+export function jackInTheBox(options: JackInTheBoxInOptions = {}, name: string = 'jackInTheBox') {
     return trigger(name, [ transition(':enter', [ useAnimation(jackInTheBoxIn(options)) ]) ]);
 }

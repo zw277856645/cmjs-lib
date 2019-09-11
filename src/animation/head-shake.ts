@@ -1,4 +1,4 @@
-import { AnimOptions, parseTimings } from './util';
+import { AnimOptions } from './util';
 import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
 
 export interface HeadShakeInOptions extends AnimOptions {
@@ -12,16 +12,10 @@ export interface HeadShakeInOptions extends AnimOptions {
     percent43?: { translateX?: string; rotateY?: string };
 }
 
-export function headShakeIn(options?: HeadShakeInOptions) {
-    let { percent6, percent18, percent31, percent43, duration, delay, easing } = options || {} as HeadShakeInOptions;
-
+export function headShakeIn(options: HeadShakeInOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 2000,
-                delay,
-                easing: easing || 'ease-in-out'
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ transform: 'translateX(0)', offset: 0 }),
                 style({ transform: 'translateX({{ percent6A }}) rotateY({{ percent6B }})', offset: 0.065 }),
@@ -33,17 +27,21 @@ export function headShakeIn(options?: HeadShakeInOptions) {
         ),
         {
             params: {
-                percent6A: (percent6 && percent6.translateX) || '-6px',
-                percent6B: (percent6 && percent6.rotateY) || '-25deg',
+                duration: options.duration || 2000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease-in-out',
 
-                percent18A: (percent18 && percent18.translateX) || '5px',
-                percent18B: (percent18 && percent18.rotateY) || '20deg',
+                percent6A: (options.percent6 && options.percent6.translateX) || '-6px',
+                percent6B: (options.percent6 && options.percent6.rotateY) || '-25deg',
 
-                percent31A: (percent31 && percent31.translateX) || '-3px',
-                percent31B: (percent31 && percent31.rotateY) || '-17deg',
+                percent18A: (options.percent18 && options.percent18.translateX) || '5px',
+                percent18B: (options.percent18 && options.percent18.rotateY) || '20deg',
 
-                percent43A: (percent43 && percent43.translateX) || '2px',
-                percent43B: (percent43 && percent43.rotateY) || '12deg'
+                percent31A: (options.percent31 && options.percent31.translateX) || '-3px',
+                percent31B: (options.percent31 && options.percent31.rotateY) || '-17deg',
+
+                percent43A: (options.percent43 && options.percent43.translateX) || '2px',
+                percent43B: (options.percent43 && options.percent43.rotateY) || '12deg'
             }
         }
     );
@@ -51,6 +49,6 @@ export function headShakeIn(options?: HeadShakeInOptions) {
 
 /* triggers */
 
-export function headShake(options?: HeadShakeInOptions, name: string = 'headShake') {
+export function headShake(options: HeadShakeInOptions = {}, name: string = 'headShake') {
     return trigger(name, [ transition(':enter', [ useAnimation(headShakeIn(options)) ]) ]);
 }

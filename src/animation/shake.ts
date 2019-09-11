@@ -1,4 +1,4 @@
-import { AnimOptions, parseTimings } from './util';
+import { AnimOptions } from './util';
 import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
 
 export interface ShakeInOptions extends AnimOptions {
@@ -20,28 +20,10 @@ export interface ShakeInOptions extends AnimOptions {
     percent88?: string;
 }
 
-export function shakeIn(options?: ShakeInOptions) {
-    let {
-        percent11,
-        percent22,
-        percent33,
-        percent44,
-        percent55,
-        percent66,
-        percent77,
-        percent88,
-        duration,
-        delay,
-        easing
-    } = options || {} as ShakeInOptions;
-
+export function shakeIn(options: ShakeInOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ transform: 'translate3d(0, 0, 0)', offset: 0 }),
                 style({ transform: 'translate3d({{ percent11 }}, 0, 0)', offset: 0.11 }),
@@ -57,14 +39,18 @@ export function shakeIn(options?: ShakeInOptions) {
         ),
         {
             params: {
-                percent11: percent11 || '-10px',
-                percent22: percent22 || '10px',
-                percent33: percent33 || '-8px',
-                percent44: percent44 || '8px',
-                percent55: percent55 || '-6px',
-                percent66: percent66 || '6px',
-                percent77: percent77 || '-4px',
-                percent88: percent88 || '4px'
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
+                percent11: options.percent11 || '-10px',
+                percent22: options.percent22 || '10px',
+                percent33: options.percent33 || '-8px',
+                percent44: options.percent44 || '8px',
+                percent55: options.percent55 || '-6px',
+                percent66: options.percent66 || '6px',
+                percent77: options.percent77 || '-4px',
+                percent88: options.percent88 || '4px'
             }
         }
     );
@@ -72,6 +58,6 @@ export function shakeIn(options?: ShakeInOptions) {
 
 /* triggers */
 
-export function shake(options?: ShakeInOptions, name: string = 'shake') {
+export function shake(options: ShakeInOptions = {}, name: string = 'shake') {
     return trigger(name, [ transition(':enter', [ useAnimation(shakeIn(options)) ]) ]);
 }

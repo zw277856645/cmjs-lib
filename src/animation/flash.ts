@@ -1,4 +1,4 @@
-import { AnimOptions, parseTimings } from './util';
+import { AnimOptions } from './util';
 import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
 
 export interface FlashInOptions extends AnimOptions {
@@ -10,16 +10,10 @@ export interface FlashInOptions extends AnimOptions {
     percent75?: number;
 }
 
-export function flashIn(options?: FlashInOptions) {
-    let { percent25, percent50, percent75, duration, delay, easing } = options || {} as FlashInOptions;
-
+export function flashIn(options: FlashInOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ opacity: 1, offset: 0 }),
                 style({ opacity: '{{ percent25 }}', offset: 0.25 }),
@@ -30,9 +24,13 @@ export function flashIn(options?: FlashInOptions) {
         ),
         {
             params: {
-                percent25: percent25 || 0,
-                percent50: percent50 || 1,
-                percent75: percent75 || 0
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
+                percent25: options.percent25 || 0,
+                percent50: options.percent50 || 1,
+                percent75: options.percent75 || 0
             }
         }
     );
@@ -40,6 +38,6 @@ export function flashIn(options?: FlashInOptions) {
 
 /* triggers */
 
-export function flash(options?: FlashInOptions, name: string = 'flash') {
+export function flash(options: FlashInOptions = {}, name: string = 'flash') {
     return trigger(name, [ transition(':enter', [ useAnimation(flashIn(options)) ]) ]);
 }

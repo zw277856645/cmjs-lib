@@ -1,41 +1,50 @@
 import {
     animate, animation, group, keyframes, state, style, transition, trigger, useAnimation
 } from '@angular/animations';
-import { AnimOptions, parseTimings, parseTriggerOptions } from './util';
+import { AnimOptions, parseTriggerOptions } from './util';
 import { slideInX, slideInY, SlideXTriggerOptions, SlideYTriggerOptions } from './slide';
-import { deepExtend } from '../util/common';
 
-export function fadeIn(options?: AnimOptions) {
-    let { duration, delay, easing } = options || {} as AnimOptions;
-
+export function fadeIn(options: AnimOptions = {}) {
     return animation(
         animate(
-            parseTimings({ duration, delay, easing }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ opacity: 0 }),
                 style({ opacity: 1 })
             ])
-        )
+        ),
+        {
+            params: {
+                duration: options.duration || 250,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease'
+            }
+        }
     );
 }
 
-export function fadeOut(options?: AnimOptions) {
-    let { duration, delay, easing } = options || {} as AnimOptions;
-
+export function fadeOut(options: AnimOptions = {}) {
     return animation(
         animate(
-            parseTimings({ duration, delay, easing }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ opacity: 1 }),
                 style({ opacity: 0 })
             ])
-        )
+        ),
+        {
+            params: {
+                duration: options.duration || 250,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease'
+            }
+        }
     );
 }
 
 /* fade triggers x */
 
-export function fade(options?: AnimOptions, name: string = 'fade') {
+export function fade(options: AnimOptions = {}, name: string = 'fade') {
     return trigger(name, [
         state('void', style({ opacity: 0 })),
         transition(':enter', [ useAnimation(fadeIn(options)) ]),
@@ -43,12 +52,7 @@ export function fade(options?: AnimOptions, name: string = 'fade') {
     ]);
 }
 
-export function fadeX(options?: SlideXTriggerOptions, name: string = 'fadeX') {
-    let { enter, leave } = options || {} as SlideXTriggerOptions;
-
-    enter = parseTriggerOptions(enter, options);
-    leave = parseTriggerOptions(leave, options);
-
+function fadeX(options: SlideXTriggerOptions, defs: SlideXTriggerOptions, name: string = 'fadeX') {
     return trigger(name, [
         state(
             'void',
@@ -56,7 +60,11 @@ export function fadeX(options?: SlideXTriggerOptions, name: string = 'fadeX') {
                 opacity: 0,
                 transform: 'translate3d({{ startX }}, 0, 0)'
             }),
-            { params: { startX: enter.startX || 0 } }
+            {
+                params: {
+                    startX: options.enter.startX || defs.enter.startX || 0
+                }
+            }
         ),
         state(
             '*',
@@ -64,59 +72,46 @@ export function fadeX(options?: SlideXTriggerOptions, name: string = 'fadeX') {
                 opacity: 1,
                 transform: 'translate3d({{ endX }}, 0, 0)'
             }),
-            { params: { endX: enter.endX || 0 } }
+            {
+                params: {
+                    endX: options.enter.endX || defs.enter.endX || 0
+                }
+            }
         ),
         transition(':enter', [
             group([
-                useAnimation(slideInX(enter)),
-                useAnimation(fadeIn(enter))
+                useAnimation(slideInX(parseTriggerOptions(options.enter, options))),
+                useAnimation(fadeIn(parseTriggerOptions(options.enter, options)))
             ])
         ]),
         transition(':leave', [
             group([
-                useAnimation(slideInX(leave)),
-                useAnimation(fadeOut(leave))
+                useAnimation(slideInX(parseTriggerOptions(options.leave, options))),
+                useAnimation(fadeOut(parseTriggerOptions(options.leave, options)))
             ])
         ])
     ]);
 }
 
-export function fadeLeft(options?: SlideXTriggerOptions, name: string = 'fadeLeft') {
-    return fadeX(
-        deepExtend({ enter: { startX: '-100%' }, leave: { endX: '-100%' } } as SlideYTriggerOptions, options),
-        name
-    );
+export function fadeLeft(options: SlideXTriggerOptions = {}, name: string = 'fadeLeft') {
+    return fadeX(options, { enter: { startX: '-100%' }, leave: { endX: '-100%' } }, name);
 }
 
-export function fadeRight(options?: SlideXTriggerOptions, name: string = 'fadeRight') {
-    return fadeX(
-        deepExtend({ enter: { startX: '100%' }, leave: { endX: '100%' } } as SlideXTriggerOptions, options),
-        name
-    );
+export function fadeRight(options: SlideXTriggerOptions = {}, name: string = 'fadeRight') {
+    return fadeX(options, { enter: { startX: '100%' }, leave: { endX: '100%' } }, name);
 }
 
-export function fadeLeftToRight(options?: SlideXTriggerOptions, name: string = 'fadeLeftToRight') {
-    return fadeX(
-        deepExtend({ enter: { startX: '-100%' }, leave: { endX: '100%' } } as SlideXTriggerOptions, options),
-        name
-    );
+export function fadeLeftToRight(options: SlideXTriggerOptions = {}, name: string = 'fadeLeftToRight') {
+    return fadeX(options, { enter: { startX: '-100%' }, leave: { endX: '100%' } }, name);
 }
 
-export function fadeRightToLeft(options?: SlideXTriggerOptions, name: string = 'fadeRightToLeft') {
-    return fadeX(
-        deepExtend({ enter: { startX: '100%' }, leave: { endX: '-100%' } } as SlideXTriggerOptions, options),
-        name
-    );
+export function fadeRightToLeft(options: SlideXTriggerOptions = {}, name: string = 'fadeRightToLeft') {
+    return fadeX(options, { enter: { startX: '100%' }, leave: { endX: '-100%' } }, name);
 }
 
 /* fade triggers y */
 
-export function fadeY(options?: SlideYTriggerOptions, name: string = 'fadeY') {
-    let { enter, leave } = options || {} as SlideYTriggerOptions;
-
-    enter = parseTriggerOptions(enter, options);
-    leave = parseTriggerOptions(leave, options);
-
+function fadeY(options: SlideYTriggerOptions, defs: SlideYTriggerOptions, name: string = 'fadeY') {
     return trigger(name, [
         state(
             'void',
@@ -124,7 +119,11 @@ export function fadeY(options?: SlideYTriggerOptions, name: string = 'fadeY') {
                 opacity: 0,
                 transform: 'translate3d(0, {{ startY }}, 0)'
             }),
-            { params: { startY: enter.startY || 0 } }
+            {
+                params: {
+                    startY: options.enter.startY || defs.enter.startY || 0
+                }
+            }
         ),
         state(
             '*',
@@ -132,47 +131,39 @@ export function fadeY(options?: SlideYTriggerOptions, name: string = 'fadeY') {
                 opacity: 1,
                 transform: 'translate3d(0, {{ endY }}, 0)'
             }),
-            { params: { endY: enter.endY || 0 } }
+            {
+                params: {
+                    endY: options.enter.endY || defs.enter.endY || 0
+                }
+            }
         ),
         transition(':enter', [
             group([
-                useAnimation(slideInY(enter)),
-                useAnimation(fadeIn(enter))
+                useAnimation(slideInY(parseTriggerOptions(options.enter, options))),
+                useAnimation(fadeIn(parseTriggerOptions(options.enter, options)))
             ])
         ]),
         transition(':leave', [
             group([
-                useAnimation(slideInY(leave)),
-                useAnimation(fadeOut(leave))
+                useAnimation(slideInY(parseTriggerOptions(options.leave, options))),
+                useAnimation(fadeOut(parseTriggerOptions(options.leave, options)))
             ])
         ])
     ]);
 }
 
-export function fadeTop(options?: SlideYTriggerOptions, name: string = 'fadeTop') {
-    return fadeY(
-        deepExtend({ enter: { startY: '-100%' }, leave: { endY: '-100%' } } as SlideYTriggerOptions, options),
-        name
-    );
+export function fadeTop(options: SlideYTriggerOptions = {}, name: string = 'fadeTop') {
+    return fadeY(options, { enter: { startY: '-100%' }, leave: { endY: '-100%' } }, name);
 }
 
-export function fadeBottom(options?: SlideYTriggerOptions, name: string = 'fadeBottom') {
-    return fadeY(
-        deepExtend({ enter: { startY: '100%' }, leave: { endY: '100%' } } as SlideYTriggerOptions, options),
-        name
-    );
+export function fadeBottom(options: SlideYTriggerOptions = {}, name: string = 'fadeBottom') {
+    return fadeY(options, { enter: { startY: '100%' }, leave: { endY: '100%' } }, name);
 }
 
-export function fadeTopToBottom(options?: SlideYTriggerOptions, name: string = 'fadeTopToBottom') {
-    return fadeY(
-        deepExtend({ enter: { startY: '-100%' }, leave: { endY: '100%' } } as SlideYTriggerOptions, options),
-        name
-    );
+export function fadeTopToBottom(options: SlideYTriggerOptions = {}, name: string = 'fadeTopToBottom') {
+    return fadeY(options, { enter: { startY: '-100%' }, leave: { endY: '100%' } }, name);
 }
 
-export function fadeBottomToTop(options?: SlideYTriggerOptions, name: string = 'fadeBottomToTop') {
-    return fadeY(
-        deepExtend({ enter: { startY: '100%' }, leave: { endY: '-100%' } } as SlideYTriggerOptions, options),
-        name
-    );
+export function fadeBottomToTop(options: SlideYTriggerOptions = {}, name: string = 'fadeBottomToTop') {
+    return fadeY(options, { enter: { startY: '100%' }, leave: { endY: '-100%' } }, name);
 }

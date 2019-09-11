@@ -1,4 +1,4 @@
-import { AnimOptions, parseTimings } from './util';
+import { AnimOptions } from './util';
 import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
 
 export interface WobbleInOptions extends AnimOptions {
@@ -14,17 +14,10 @@ export interface WobbleInOptions extends AnimOptions {
     percent75?: { translateX?: string; rotateZ?: string };
 }
 
-export function wobbleIn(options?: WobbleInOptions) {
-    let { percent15, percent30, percent45, percent60, percent75, duration, delay, easing }
-        = options || {} as WobbleInOptions;
-
+export function wobbleIn(options: WobbleInOptions = {}) {
     return animation(
         animate(
-            parseTimings({
-                duration: duration || 1000,
-                delay,
-                easing
-            }),
+            '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ transform: 'translate3d(0, 0, 0)', offset: 0 }),
                 style({ transform: formatTransform('{{ percent15A }}', '{{ percent15B }}'), offset: 0.15 }),
@@ -37,20 +30,24 @@ export function wobbleIn(options?: WobbleInOptions) {
         ),
         {
             params: {
-                percent15A: (percent15 && percent15.translateX) || '-25%',
-                percent15B: (percent15 && percent15.rotateZ) || '-5deg',
+                duration: options.duration || 1000,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
 
-                percent30A: (percent30 && percent30.translateX) || '20%',
-                percent30B: (percent30 && percent30.rotateZ) || '3deg',
+                percent15A: (options.percent15 && options.percent15.translateX) || '-25%',
+                percent15B: (options.percent15 && options.percent15.rotateZ) || '-5deg',
 
-                percent45A: (percent45 && percent45.translateX) || '-15%',
-                percent45B: (percent45 && percent45.rotateZ) || '-3deg',
+                percent30A: (options.percent30 && options.percent30.translateX) || '20%',
+                percent30B: (options.percent30 && options.percent30.rotateZ) || '3deg',
 
-                percent60A: (percent60 && percent60.translateX) || '10%',
-                percent60B: (percent60 && percent60.rotateZ) || '2deg',
+                percent45A: (options.percent45 && options.percent45.translateX) || '-15%',
+                percent45B: (options.percent45 && options.percent45.rotateZ) || '-3deg',
 
-                percent75A: (percent75 && percent75.translateX) || '-5%',
-                percent75B: (percent75 && percent75.rotateZ) || '-1deg'
+                percent60A: (options.percent60 && options.percent60.translateX) || '10%',
+                percent60B: (options.percent60 && options.percent60.rotateZ) || '2deg',
+
+                percent75A: (options.percent75 && options.percent75.translateX) || '-5%',
+                percent75B: (options.percent75 && options.percent75.rotateZ) || '-1deg'
             }
         }
     );
@@ -62,6 +59,6 @@ function formatTransform(translateAttr: string, rotateAttr: string) {
 
 /* triggers */
 
-export function wobble(options?: WobbleInOptions, name: string = 'wobble') {
+export function wobble(options: WobbleInOptions = {}, name: string = 'wobble') {
     return trigger(name, [ transition(':enter', [ useAnimation(wobbleIn(options)) ]) ]);
 }

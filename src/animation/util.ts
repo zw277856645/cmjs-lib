@@ -1,64 +1,22 @@
 import { AnimationReferenceMetadata, transition, trigger, useAnimation } from '@angular/animations';
 
+/**
+ * PS：动画会被使用在 @Component 的 animations 中，angular 在 AOT 编译时禁止在注解中执行'除 return 语句外还包含其他语句函数'，
+ * 比如 function getName() { return 'xxx' } 合法，而 function getName() { console.log('xxx'); return 'xxx' } 会
+ * 报错(Function calls are not supported in decorators)，所以本插件中所有动画函数经过简化处理，只有直接的 return 语句
+ */
+
 export interface AnimOptions {
 
-    duration?: number | string;
+    duration?: number;
 
-    delay?: number | string;
+    delay?: number;
 
     easing?: string;
 }
 
-export function isNullOrUndefined(v: any) {
-    return v === null || v === undefined;
-}
-
-export function parseTimings({ duration, delay, easing }: AnimOptions) {
-    let str = '';
-
-    if (duration === null || duration === undefined) {
-        // 默认持续时间
-        str += '250ms';
-    } else if (typeof duration === 'string') {
-        str += duration;
-    } else {
-        str += `${duration}ms`;
-    }
-
-    if (delay === null || delay === undefined) {
-        str += ' 0ms';
-    } else if (typeof delay === 'string') {
-        str += ` ${delay}`;
-    } else {
-        str += ` ${delay}ms`;
-    }
-
-    if (easing) {
-        str += ` ${easing}`;
-    }
-
-    return str;
-}
-
-export function parseTriggerOptions<T extends AnimOptions>(src: T, tar: AnimOptions): T {
-    if (isNullOrUndefined(src)) {
-        src = {} as T;
-    }
-    if (isNullOrUndefined(tar)) {
-        tar = {} as AnimOptions;
-    }
-
-    if (!isNullOrUndefined(tar.duration) && isNullOrUndefined(src.duration)) {
-        src.duration = tar.duration;
-    }
-    if (!isNullOrUndefined(tar.delay) && isNullOrUndefined(src.delay)) {
-        src.delay = tar.delay;
-    }
-    if (!isNullOrUndefined(tar.easing) && isNullOrUndefined(src.easing)) {
-        src.easing = tar.easing;
-    }
-
-    return src;
+export function parseTriggerOptions<T extends AnimOptions>(src: T, { duration, delay, easing }: AnimOptions): T {
+    return { duration, delay, easing, ...(src || {} as T) };
 }
 
 export interface CommonTriggerOptions<A extends AnimOptions, B extends AnimOptions = A> extends AnimOptions {
@@ -71,16 +29,12 @@ export interface CommonTriggerOptions<A extends AnimOptions, B extends AnimOptio
 // tslint:disable-next-line:max-line-length
 export function commonTriggerCreator<A extends AnimOptions, B extends AnimOptions, T extends CommonTriggerOptions<A, B>>(
     name: string,
-    options: T,
+    options: T = {} as T,
     enterHandler: (options: A) => AnimationReferenceMetadata,
-    leaveHandler: (options: B) => AnimationReferenceMetadata) {
-    let { enter, leave } = options || {} as T;
-
-    enter = parseTriggerOptions(enter, options);
-    leave = parseTriggerOptions(leave, options);
-
+    leaveHandler: (options: B) => AnimationReferenceMetadata
+) {
     return trigger(name, [
-        transition(':enter', [ useAnimation(enterHandler(enter)) ]),
-        transition(':leave', [ useAnimation(leaveHandler(leave)) ])
+        transition(':enter', [ useAnimation(enterHandler(parseTriggerOptions(options.enter, options))) ]),
+        transition(':leave', [ useAnimation(leaveHandler(parseTriggerOptions(options.leave, options))) ])
     ]);
 }

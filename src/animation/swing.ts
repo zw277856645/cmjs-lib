@@ -1,4 +1,4 @@
-import { AnimOptions, parseTimings } from './util';
+import { AnimOptions } from './util';
 import { animate, animation, keyframes, style, transition, trigger, useAnimation } from '@angular/animations';
 
 export interface SwingInOptions extends AnimOptions {
@@ -12,18 +12,12 @@ export interface SwingInOptions extends AnimOptions {
     percent80?: string;
 }
 
-export function swingIn(options?: SwingInOptions) {
-    let { percent20, percent40, percent60, percent80, duration, delay, easing } = options || {} as SwingInOptions;
-
+export function swingIn(options: SwingInOptions = {}) {
     return animation(
         [
             style({ 'transform-origin': 'top center' }),
             animate(
-                parseTimings({
-                    duration: duration || 800,
-                    delay,
-                    easing
-                }),
+                '{{ duration }}ms {{ delay }}ms {{ easing }}',
                 keyframes([
                     style({ transform: 'rotate3d(0, 0, 1, {{ percent20 }})', offset: 0.2 }),
                     style({ transform: 'rotate3d(0, 0, 1, {{ percent40 }})', offset: 0.4 }),
@@ -35,10 +29,14 @@ export function swingIn(options?: SwingInOptions) {
         ],
         {
             params: {
-                percent20: percent20 || '15deg',
-                percent40: percent40 || '-10deg',
-                percent60: percent60 || '5deg',
-                percent80: percent80 || '-5deg'
+                duration: options.duration || 800,
+                delay: options.delay || 0,
+                easing: options.easing || 'ease',
+
+                percent20: options.percent20 || '15deg',
+                percent40: options.percent40 || '-10deg',
+                percent60: options.percent60 || '5deg',
+                percent80: options.percent80 || '-5deg'
             }
         }
     );
@@ -46,6 +44,6 @@ export function swingIn(options?: SwingInOptions) {
 
 /* triggers */
 
-export function swing(options?: SwingInOptions, name: string = 'swing') {
+export function swing(options: SwingInOptions = {}, name: string = 'swing') {
     return trigger(name, [ transition(':enter', [ useAnimation(swingIn(options)) ]) ]);
 }
