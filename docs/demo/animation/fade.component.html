@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="section">fade</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@fadeIn]="fadeInState"
+           (@fadeIn.done)="fadeInState = 'stop'"
+           (click)="fadeInState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeOut</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@fadeOut]="fadeOutState"
+           (@fadeOut.done)="fadeOutState = 'stop'"
+           (click)="fadeOutState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item full">
+    <div class="head">
+      <div class="title">fade</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeShow" @fade>Animate</div>
+      <button class="button" (click)="fadeShow = !fadeShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">fade - 水平方向（结合 slide 动画）</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeLeftShow" @fadeLeft>Animate</div>
+      <button class="button" (click)="fadeLeftShow = !fadeLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeRightShow" @fadeRight>Animate</div>
+      <button class="button" (click)="fadeRightShow = !fadeRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeLeftToRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeLeftToRightShow" @fadeLeftToRight>Animate</div>
+      <button class="button" (click)="fadeLeftToRightShow = !fadeLeftToRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeRightToLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeRightToLeftShow" @fadeRightToLeft>Animate</div>
+      <button class="button" (click)="fadeRightToLeftShow = !fadeRightToLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">fade - 垂直方向</div>
+</div>

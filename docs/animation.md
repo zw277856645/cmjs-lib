@@ -31,7 +31,10 @@ export class ExampleComponent {
 @Component({
     ...
     animations: [
-        fade({ duration: 1000 })
+        // 第二个参数为动画名称，默认与函数名称相同
+        // 当需要使用多个不同配置的相同固定动画时，需要指定不同名称来使用
+        fade({ duration: 1000 }, 'fade1000'),
+        fade({ duration: 2000 }, 'fade2000')
     ]
 })
 export class ExampleComponent {
@@ -39,6 +42,10 @@ export class ExampleComponent {
 ```
 
 ## bounce-drop
+
+``` angular-files
+demo/animation/bounce-drop.component.ts
+```
 
 ### bounceDropIn
 
@@ -57,10 +64,6 @@ export class ExampleComponent {
 }
 ```
 
-``` angular-files
-demo/animation/bounce-drop/bounce-drop-in.ts
-```
-
 ### bounceDrop
 
 - 固定动画
@@ -70,11 +73,11 @@ demo/animation/bounce-drop/bounce-drop-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/bounce-drop/bounce-drop.ts
-```
-
 ## flash
+
+``` angular-files
+demo/animation/flash.component.ts
+```
 
 ### flashIn
 
@@ -93,10 +96,6 @@ demo/animation/bounce-drop/bounce-drop.ts
 }
 ```
 
-``` angular-files
-demo/animation/flash/flash-in.ts
-```
-
 ### flash
 
 - 固定动画
@@ -106,11 +105,11 @@ demo/animation/flash/flash-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/flash/flash.ts
-```
-
 ## pulse
+
+``` angular-files
+demo/animation/pulse.component.ts
+```
 
 ### pulseIn
 
@@ -127,10 +126,6 @@ demo/animation/flash/flash.ts
 }
 ```
 
-``` angular-files
-demo/animation/pulse/pulse-in.ts
-```
-
 ### pulse
 
 - 固定动画
@@ -140,11 +135,11 @@ demo/animation/pulse/pulse-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/pulse/pulse.ts
-```
-
 ## rubber-band
+
+``` angular-files
+demo/animation/rubber-band.component.ts
+```
 
 ### rubberBandIn
 
@@ -165,10 +160,6 @@ demo/animation/pulse/pulse.ts
 }
 ```
 
-``` angular-files
-demo/animation/rubber-band/rubber-band-in.ts
-```
-
 ### rubberBand
 
 - 固定动画
@@ -178,11 +169,11 @@ demo/animation/rubber-band/rubber-band-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/rubber-band/rubber-band.ts
-```
-
 ## shake
+
+``` angular-files
+demo/animation/shake.component.ts
+```
 
 ### shakeIn
 
@@ -206,10 +197,6 @@ demo/animation/rubber-band/rubber-band.ts
 }
 ```
 
-``` angular-files
-demo/animation/shake/shake-in.ts
-```
-
 ### shake
 
 - 固定动画
@@ -219,11 +206,11 @@ demo/animation/shake/shake-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/shake/shake.ts
-```
-
 ## swing
+
+``` angular-files
+demo/animation/swing.component.ts
+```
 
 ### swingIn
 
@@ -243,10 +230,6 @@ demo/animation/shake/shake.ts
 }
 ```
 
-``` angular-files
-demo/animation/swing/swing-in.ts
-```
-
 ### swing
 
 - 固定动画
@@ -256,11 +239,11 @@ demo/animation/swing/swing-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/swing/swing.ts
-```
-
 ## tada
+
+``` angular-files
+demo/animation/tada.component.ts
+```
 
 ### tadaIn
 
@@ -285,10 +268,6 @@ demo/animation/swing/swing.ts
 }
 ```
 
-``` angular-files
-demo/animation/tada/tada-in.ts
-```
-
 ### tada
 
 - 固定动画
@@ -298,11 +277,11 @@ demo/animation/tada/tada-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/tada/tada.ts
-```
-
 ## wobble
+
+``` angular-files
+demo/animation/wobble.component.ts
+```
 
 ### wobbleIn
 
@@ -323,10 +302,6 @@ demo/animation/tada/tada.ts
 }
 ```
 
-``` angular-files
-demo/animation/wobble/wobble-in.ts
-```
-
 ### wobble
 
 - 固定动画
@@ -336,11 +311,11 @@ demo/animation/wobble/wobble-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/wobble/wobble.ts
-```
-
 ## jello
+
+``` angular-files
+demo/animation/jello.component.ts
+```
 
 ### jelloIn
 
@@ -363,10 +338,6 @@ demo/animation/wobble/wobble.ts
 }
 ```
 
-``` angular-files
-demo/animation/jello/jello-in.ts
-```
-
 ### jello
 
 - 固定动画
@@ -376,11 +347,11 @@ demo/animation/jello/jello-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/jello/jello.ts
-```
-
 ## heart-beat
+
+``` angular-files
+demo/animation/heart-beat.component.ts
+```
 
 ### heartBeatIn
 
@@ -399,10 +370,6 @@ demo/animation/jello/jello.ts
 }
 ```
 
-``` angular-files
-demo/animation/heart-beat/heart-beat-in.ts
-```
-
 ### heartBeat
 
 - 固定动画
@@ -412,11 +379,17 @@ demo/animation/heart-beat/heart-beat-in.ts
 // 只有 :enter 动画，没有 :leave 动画
 ```
 
-``` angular-files
-demo/animation/heart-beat/heart-beat.ts
-```
-
 ## bounce
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 800
+  }
+}
+
+demo/animation/bounce.component.ts
+```
 
 ### bounceIn
 
@@ -437,10 +410,6 @@ demo/animation/heart-beat/heart-beat.ts
 }
 ```
 
-``` angular-files
-demo/animation/bounce/bounce-in.ts
-```
-
 ### bounceOut
 
 - 动画组件
@@ -459,10 +428,6 @@ demo/animation/bounce/bounce-in.ts
 }
 ```
 
-``` angular-files
-demo/animation/bounce/bounce-out.ts
-```
-
 ### bounce
 
 - 固定动画
@@ -474,13 +439,9 @@ demo/animation/bounce/bounce-out.ts
     delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
     easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
 
-    enter?: BounceInOptions;    // :enter 动画参数
-    leave?: BounceOutOptions;   // :leave 动画参数
+    enter?: BounceInOptions;    // :enter 动画参数，使用 bounceIn
+    leave?: BounceOutOptions;   // :leave 动画参数，使用 bounceOut
 }
-```
-
-``` angular-files
-demo/animation/bounce/bounce.ts
 ```
 
 ### bounceInLeft
@@ -501,6 +462,357 @@ demo/animation/bounce/bounce.ts
 }
 ```
 
+### bounceOutLeft
+
+- 动画组件
+
+``` js
+// 参数 - BounceOutXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    percent20?: string;     // 动画在 0%   偏移量处的 translateX 值，默认值 10px
+    percent100?: string;    // 动画在 100% 偏移量处的 translateX 值，默认值 -100%
+}
+```
+
+### bounceInRight
+
+- 动画组件
+
+``` js
+// 参数 - BounceInXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 cubic-bezier(0.215, 0.61, 0.355, 1)
+
+    percent0?: string;      // 动画在 0%  偏移量处的 translateX 值，默认值 100%
+    percent60?: string;     // 动画在 60% 偏移量处的 translateX 值，默认值 -25px
+    percent75?: string;     // 动画在 75% 偏移量处的 translateX 值，默认值 10px
+    percent90?: string;     // 动画在 90% 偏移量处的 translateX 值，默认值 -5px
+}
+```
+
+### bounceOutRight
+
+- 动画组件
+
+``` js
+// 参数 - BounceOutXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    percent20?: string;     // 动画在 0%   偏移量处的 translateX 值，默认值 -10px
+    percent100?: string;    // 动画在 100% 偏移量处的 translateX 值，默认值 100%
+}
+```
+
+### bounceLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInXOptions;    // :enter 动画参数，使用 bounceInLeft
+    leave?: BounceOutXOptions;   // :leave 动画参数，使用 bounceOutLeft
+}
+```
+
+### bounceRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInXOptions;    // :enter 动画参数，使用 bounceInRight
+    leave?: BounceOutXOptions;   // :leave 动画参数，使用 bounceOutRight
+}
+```
+
+### bounceLeftToRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInXOptions;    // :enter 动画参数，使用 bounceInLeft
+    leave?: BounceOutXOptions;   // :leave 动画参数，使用 bounceOutRight
+}
+```
+
+### bounceRightToLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInXOptions;    // :enter 动画参数，使用 bounceInRight
+    leave?: BounceOutXOptions;   // :leave 动画参数，使用 bounceOutLeft
+}
+```
+
+### bounceInTop
+
+- 动画组件
+
+``` js
+// 参数 - BounceInYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 cubic-bezier(0.215, 0.61, 0.355, 1)
+
+    percent0?: string;      // 动画在 0%  偏移量处的 translateY 值，默认值 -100%
+    percent60?: string;     // 动画在 60% 偏移量处的 translateY 值，默认值 20px
+    percent75?: string;     // 动画在 75% 偏移量处的 translateY 值，默认值 -10px
+    percent90?: string;     // 动画在 90% 偏移量处的 translateY 值，默认值 5px
+}
+```
+
+### bounceOutTop
+
+- 动画组件
+
+``` js
+// 参数 - BounceOutYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    percent20?: string;     // 动画在 0%  偏移量处的 translateY 值，默认值 -10px
+    percent40?: string;     // 动画在 60% 偏移量处的 translateY 值，默认值 10px
+    percent45?: string;     // 动画在 75% 偏移量处的 translateY 值，默认值 10px
+    percent100?: string;    // 动画在 90% 偏移量处的 translateY 值，默认值 -100%
+}
+```
+
+### bounceInBottom
+
+- 动画组件
+
+``` js
+// 参数 - BounceInYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 cubic-bezier(0.215, 0.61, 0.355, 1)
+
+    percent0?: string;      // 动画在 0%  偏移量处的 translateY 值，默认值 100%
+    percent60?: string;     // 动画在 60% 偏移量处的 translateY 值，默认值 -20px
+    percent75?: string;     // 动画在 75% 偏移量处的 translateY 值，默认值 10px
+    percent90?: string;     // 动画在 90% 偏移量处的 translateY 值，默认值 -5px
+}
+```
+
+### bounceOutBottom
+
+- 动画组件
+
+``` js
+// 参数 - BounceInYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    percent20?: string;     // 动画在 0%  偏移量处的 translateY 值，默认值 10px
+    percent40?: string;     // 动画在 60% 偏移量处的 translateY 值，默认值 -10px
+    percent45?: string;     // 动画在 75% 偏移量处的 translateY 值，默认值 -10px
+    percent100?: string;    // 动画在 90% 偏移量处的 translateY 值，默认值 100%
+}
+```
+
+### bounceTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInYOptions;    // :enter 动画参数，使用 bounceInTop
+    leave?: BounceOutYOptions;   // :leave 动画参数，使用 bounceOutTop
+}
+```
+
+### bounceBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInYOptions;    // :enter 动画参数，使用 bounceInBottom
+    leave?: BounceOutYOptions;   // :leave 动画参数，使用 bounceOutBottom
+}
+```
+
+### bounceTopToBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInYOptions;    // :enter 动画参数，使用 bounceInTop
+    leave?: BounceOutYOptions;   // :leave 动画参数，使用 bounceOutBottom
+}
+```
+
+### bounceBottomToTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: BounceInYOptions;    // :enter 动画参数，使用 bounceInBottom
+    leave?: BounceOutYOptions;   // :leave 动画参数，使用 bounceOutTop
+}
+```
+
+## fade
+
 ``` angular-files
-demo/animation/bounce/bounce-in-left.ts
+{
+  "embedOptions": {
+    "height": 800
+  }
+}
+
+demo/animation/fade.component.ts
+```
+
+### fadeIn
+
+- 动画组件
+
+``` js
+// 参数
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+}
+```
+
+### fadeOut
+
+- 动画组件
+
+``` js
+// 参数同 fadeIn
+```
+
+### fade
+
+- 固定动画
+
+``` js
+// 参数同 fadeIn，:enter 使用 fadeIn，:leave 使用 fadeOut
+```
+
+### fadeLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 fadeIn、slideInX(-100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 fadeOut、slideInX(0 => -100%)
+}
+```
+
+### fadeRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 fadeIn、slideInX(100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 fadeOut、slideInX(0 => 100%)
+}
+```
+
+### fadeLeftToRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 fadeIn、slideInX(-100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 fadeOut、slideInX(0 => 100%)
+}
+```
+
+### fadeRightToLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 fadeIn、slideInX(100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 fadeOut、slideInX(0 => -100%)
+}
 ```

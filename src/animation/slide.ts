@@ -1,5 +1,5 @@
-import { AnimOptions, CommonTriggerOptions, parseTriggerOptions } from './util';
 import { animate, animation, keyframes, state, style, transition, trigger, useAnimation } from '@angular/animations';
+import { AnimOptions, CommonTriggerOptions, parseTriggerOptions } from './util';
 
 /* slide in x */
 
@@ -103,14 +103,14 @@ export function slideOutBottom(options: SlideYOptions = {}) {
 
 export type SlideXTriggerOptions = CommonTriggerOptions<SlideXOptions>;
 
-function slideX(options: SlideXTriggerOptions, defs: SlideXTriggerOptions, name: string = 'slideX') {
+function slideX(options: SlideXTriggerOptions, name: string = 'slideX') {
     return trigger(name, [
         state(
             'void',
             style({ transform: 'translate3d({{ startX }}, 0, 0)' }),
             {
                 params: {
-                    startX: options.enter.startX || defs.enter.startX || 0
+                    startX: options.enter && options.enter.startX || 0
                 }
             }
         ),
@@ -119,7 +119,7 @@ function slideX(options: SlideXTriggerOptions, defs: SlideXTriggerOptions, name:
             style({ transform: 'translate3d({{ endX }}, 0, 0)' }),
             {
                 params: {
-                    endX: options.enter.endX || defs.enter.endX || 0
+                    endX: options.enter && options.enter.endX || 0
                 }
             }
         ),
@@ -129,33 +129,33 @@ function slideX(options: SlideXTriggerOptions, defs: SlideXTriggerOptions, name:
 }
 
 export function slideLeft(options: SlideXTriggerOptions = {}, name: string = 'slideLeft') {
-    return slideX(options, { enter: { startX: '-100%' }, leave: { endX: '-100%' } }, name);
+    return slideX({ enter: { startX: '-100%', ...options.enter }, leave: { endX: '-100%', ...options.leave } }, name);
 }
 
 export function slideRight(options: SlideXTriggerOptions = {}, name: string = 'slideRight') {
-    return slideX(options, { enter: { startX: '100%' }, leave: { endX: '100%' } }, name);
+    return slideX({ enter: { startX: '100%', ...options.enter }, leave: { endX: '100%', ...options.leave } }, name);
 }
 
 export function slideLeftToRight(options: SlideXTriggerOptions = {}, name: string = 'slideLeftToRight') {
-    return slideX(options, { enter: { startX: '-100%' }, leave: { endX: '100%' } }, name);
+    return slideX({ enter: { startX: '-100%', ...options.enter }, leave: { endX: '100%', ...options.leave } }, name);
 }
 
 export function slideRightToLeft(options: SlideXTriggerOptions = {}, name: string = 'slideRightToLeft') {
-    return slideX(options, { enter: { startX: '100%' }, leave: { endX: '-100%' } }, name);
+    return slideX({ enter: { startX: '100%', ...options.enter }, leave: { endX: '-100%', ...options.leave } }, name);
 }
 
 /* slide triggers y */
 
 export type SlideYTriggerOptions = CommonTriggerOptions<SlideYOptions>;
 
-function slideY(options: SlideYTriggerOptions, defs: SlideYTriggerOptions, name: string = 'slideY') {
+function slideY(options: SlideYTriggerOptions, name: string = 'slideY') {
     return trigger(name, [
         state(
             'void',
             style({ transform: 'translate3d(0, {{ startY }}, 0)' }),
             {
                 params: {
-                    startY: options.enter.startY || defs.enter.startY || 0
+                    startY: options.enter && options.enter.startY || 0
                 }
             }
         ),
@@ -164,7 +164,7 @@ function slideY(options: SlideYTriggerOptions, defs: SlideYTriggerOptions, name:
             style({ transform: 'translate3d(0, {{ endY }}, 0)' }),
             {
                 params: {
-                    endY: options.enter.endY || defs.enter.endY || 0
+                    endY: options.enter && options.enter.endY || 0
                 }
             }
         ),
@@ -174,17 +174,17 @@ function slideY(options: SlideYTriggerOptions, defs: SlideYTriggerOptions, name:
 }
 
 export function slideTop(options: SlideYTriggerOptions = {}, name: string = 'slideTop') {
-    return slideY(options, { enter: { startY: '-100%' }, leave: { endY: '-100%' } }, name);
+    return slideY({ enter: { startY: '-100%', ...options.enter }, leave: { endY: '-100%', ...options.leave } }, name);
 }
 
 export function slideBottom(options: SlideYTriggerOptions = {}, name: string = 'slideBottom') {
-    return slideY(options, { enter: { startY: '100%' }, leave: { endY: '100%' } }, name);
+    return slideY({ enter: { startY: '100%', ...options.enter }, leave: { endY: '100%', ...options.leave } }, name);
 }
 
 export function slideTopToBottom(options: SlideYTriggerOptions = {}, name: string = 'slideTopToBottom') {
-    return slideY(options, { enter: { startY: '-100%' }, leave: { endY: '100%' } }, name);
+    return slideY({ enter: { startY: '-100%', ...options.enter }, leave: { endY: '100%', ...options.leave } }, name);
 }
 
 export function slideBottomToTop(options: SlideYTriggerOptions = {}, name: string = 'slideBottomToTop') {
-    return slideY(options, { enter: { startY: '100%' }, leave: { endY: '-100%' } }, name);
+    return slideY({ enter: { startY: '100%', ...options.enter }, leave: { endY: '-100%', ...options.leave } }, name);
 }

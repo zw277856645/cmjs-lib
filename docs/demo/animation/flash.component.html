@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="item">
+    <div class="head">
+      <div class="title">flashIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@flashIn]="state"
+           (@flashIn.done)="state = 'stop'"
+           (click)="state = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flash</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="show" @flash>Animate</div>
+      <button class="button" (click)="show = !show">Click me</button>
+    </div>
+  </div>
+</div>
