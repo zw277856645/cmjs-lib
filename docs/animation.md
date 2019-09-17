@@ -294,11 +294,20 @@ demo/animation/wobble.component.ts
     delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
     easing?: string;        // 变化曲线，默认值 ease
 
-    percent15?: { translateX?: string; rotateZ?: string };  // 动画在 15% 偏移量处的 translateX, rotateZ 值，默认值 -25%, -5deg
-    percent30?: { translateX?: string; rotateZ?: string };  // 动画在 30% 偏移量处的 translateX, rotateZ 值，默认值 20%, 3deg
-    percent45?: { translateX?: string; rotateZ?: string };  // 动画在 45% 偏移量处的 translateX, rotateZ 值，默认值 -15%, -3deg
-    percent60?: { translateX?: string; rotateZ?: string };  // 动画在 60% 偏移量处的 translateX, rotateZ 值，默认值 10%, 2deg
-    percent75?: { translateX?: string; rotateZ?: string };  // 动画在 75% 偏移量处的 translateX, rotateZ 值，默认值 -5%, -1deg
+    // 动画在 15% 偏移量处的 translateX, rotateZ 值，默认值 -25%, -5deg
+    percent15?: { translateX?: string; rotateZ?: string };
+
+    // 动画在 30% 偏移量处的 translateX, rotateZ 值，默认值 20%, 3deg
+    percent30?: { translateX?: string; rotateZ?: string };
+
+    // 动画在 45% 偏移量处的 translateX, rotateZ 值，默认值 -15%, -3deg
+    percent45?: { translateX?: string; rotateZ?: string };
+
+    // 动画在 60% 偏移量处的 translateX, rotateZ 值，默认值 10%, 2deg
+    percent60?: { translateX?: string; rotateZ?: string };
+
+    // 动画在 75% 偏移量处的 translateX, rotateZ 值，默认值 -5%, -1deg
+    percent75?: { translateX?: string; rotateZ?: string };
 }
 ```
 
@@ -712,6 +721,306 @@ demo/animation/bounce.component.ts
 }
 ```
 
+## slide
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 800
+  }
+}
+
+demo/animation/slide.component.ts
+```
+
+### slideInX
+
+- 动画组件
+
+``` js
+// 参数 - SlideXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startX?: string;        // 动画在 0%   偏移量处的 translateX 值，默认值 0
+    endX?: string;          // 动画在 100% 偏移量处的 translateX 值，默认值 0
+}
+```
+
+### slideInLeft
+
+- 动画组件
+
+``` js
+// 参数 - SlideXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startX?: string;        // 动画在 0%   偏移量处的 translateX 值，默认值 -100%
+    endX?: string;          // 动画在 100% 偏移量处的 translateX 值，默认值 0
+}
+```
+
+### slideInRight
+
+- 动画组件
+
+``` js
+// 参数 - SlideXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startX?: string;        // 动画在 0%   偏移量处的 translateX 值，默认值 100%
+    endX?: string;          // 动画在 100% 偏移量处的 translateX 值，默认值 0
+}
+```
+
+### slideOutLeft
+
+- 动画组件
+
+``` js
+// 参数 - SlideXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startX?: string;        // 动画在 0%   偏移量处的 translateX 值，默认值 0
+    endX?: string;          // 动画在 100% 偏移量处的 translateX 值，默认值 -100%
+}
+```
+
+### slideOutRight
+
+- 动画组件
+
+``` js
+// 参数 - SlideXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startX?: string;        // 动画在 0%   偏移量处的 translateX 值，默认值 0
+    endX?: string;          // 动画在 100% 偏移量处的 translateX 值，默认值 100%
+}
+```
+
+### slideLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 slideInX(-100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 slideInX(0 => -100%)
+}
+```
+
+### slideRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 slideInX(100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 slideInX(0 => 100%)
+}
+```
+
+### slideLeftToRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 slideInX(-100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 slideInX(0 => 100%)
+}
+```
+
+### slideRightToLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideXOptions;       // :enter 动画参数，使用 slideInX(100% => 0)
+    leave?: SlideXOptions;       // :leave 动画参数，使用 slideInX(0 => -100%)
+}
+```
+
+### slideInY
+
+- 动画组件
+
+``` js
+// 参数 - SlideYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startY?: string;        // 动画在 0%   偏移量处的 translateY 值，默认值 0
+    endY?: string;          // 动画在 100% 偏移量处的 translateY 值，默认值 0
+}
+```
+
+### slideInTop
+
+- 动画组件
+
+``` js
+// 参数 - SlideYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startY?: string;        // 动画在 0%   偏移量处的 translateY 值，默认值 -100%
+    endY?: string;          // 动画在 100% 偏移量处的 translateY 值，默认值 0
+}
+```
+
+### slideInBottom
+
+- 动画组件
+
+``` js
+// 参数 - SlideYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startY?: string;        // 动画在 0%   偏移量处的 translateY 值，默认值 100%
+    endY?: string;          // 动画在 100% 偏移量处的 translateY 值，默认值 0
+}
+```
+
+### slideOutTop
+
+- 动画组件
+
+``` js
+// 参数 - SlideYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startY?: string;        // 动画在 0%   偏移量处的 translateY 值，默认值 0
+    endY?: string;          // 动画在 100% 偏移量处的 translateY 值，默认值 -100%
+}
+```
+
+### slideOutBottom
+
+- 动画组件
+
+``` js
+// 参数 - SlideYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 250
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startY?: string;        // 动画在 0%   偏移量处的 translateY 值，默认值 0
+    endY?: string;          // 动画在 100% 偏移量处的 translateY 值，默认值 100%
+}
+```
+
+### slideTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 slideInY(-100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 slideInY(0 => -100%)
+}
+```
+
+### slideBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 slideInY(100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 slideInY(0 => 100%)
+}
+```
+
+### slideTopToBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 slideInY(-100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 slideInY(0 => 100%)
+}
+```
+
+### slideBottomToTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 slideInY(100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 slideInY(0 => -100%)
+}
+```
+
 ## fade
 
 ``` angular-files
@@ -814,5 +1123,1115 @@ demo/animation/fade.component.ts
 
     enter?: SlideXOptions;       // :enter 动画参数，使用 fadeIn、slideInX(100% => 0)
     leave?: SlideXOptions;       // :leave 动画参数，使用 fadeOut、slideInX(0 => -100%)
+}
+```
+
+### fadeTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 fadeIn、slideInY(-100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 fadeOut、slideInY(0 => -100%)
+}
+```
+
+### fadeBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 fadeIn、slideInY(100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 fadeOut、slideInY(0 => 100%)
+}
+```
+
+### fadeTopToBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 fadeIn、slideInY(-100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 fadeOut、slideInY(0 => 100%)
+}
+```
+
+### fadeBottomToTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: SlideYOptions;       // :enter 动画参数，使用 fadeIn、slideInY(100% => 0)
+    leave?: SlideYOptions;       // :leave 动画参数，使用 fadeOut、slideInY(0 => -100%)
+}
+```
+
+## flip
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 800
+  }
+}
+
+demo/animation/flip.component.ts
+```
+
+### flipIn
+
+- 动画组件
+
+``` js
+// 参数 - FlipInOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 0%  偏移量处的 perspective, scale3d, translateZ, rotateY 值，默认值 400px, 1, 0, -360deg
+    percent0?: { perspective?: string; scale?: number; translateZ?: string; rotateY?: string; };
+
+    // 动画在 40% 偏移量处的 perspective, scale3d, translateZ, rotateY 值，默认值 400px, 1, 150px, -190px
+    percent40?: { perspective?: string; scale?: number; translateZ?: string; rotateY?: string; };
+
+    // 动画在 50% 偏移量处的 perspective, scale3d, translateZ, rotateY 值，默认值 400px, 1, 150px, -170px
+    percent50?: { perspective?: string; scale?: number; translateZ?: string; rotateY?: string; };
+
+    // 动画在 80% 偏移量处的 perspective, scale3d, translateZ, rotateY 值，默认值 400px, 1, 0, 0
+    percent80?: { perspective?: string; scale?: number; translateZ?: string; rotateY?: string; };
+}
+```
+
+### flip
+
+- 固定动画
+
+``` js
+// 参数同 flipIn
+// 只有 :enter 动画，没有 :leave 动画
+```
+
+### flipInX
+
+- 动画组件
+
+``` js
+// 参数 - FlipInXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 0%   偏移量处的 perspective, rotateX 值，默认值 400px, 90deg
+    percent0?: { perspective?: string; rotate?: string; };
+
+    // 动画在 40%  偏移量处的 perspective, rotateX 值，默认值 400px, -20deg
+    percent40?: { perspective?: string; rotate?: string; };
+
+    // 动画在 60%  偏移量处的 perspective, rotateX 值，默认值 400px, 10deg
+    percent60?: { perspective?: string; rotate?: string; };
+
+    // 动画在 80%  偏移量处的 perspective, rotateX 值，默认值 400px, -5deg
+    percent80?: { perspective?: string; rotate?: string; };
+
+    // 动画在 100% 偏移量处的 perspective, rotateX 值，默认值 400px, 0
+    percent100?: { perspective?: string; rotate?: string; };
+}
+```
+
+### flipOutX
+
+- 动画组件
+
+``` js
+// 参数 - FlipOutXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 750
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 0%   偏移量处的 perspective, rotateX 值，默认值 400px, 0
+    percent0?: { perspective?: string; rotate?: string; };
+
+    // 动画在 30%  偏移量处的 perspective, rotateX 值，默认值 400px, -20deg
+    percent30?: { perspective?: string; rotate?: string; };
+
+    // 动画在 100% 偏移量处的 perspective, rotateX 值，默认值 400px, 90deg
+    percent100?: { perspective?: string; rotate?: string; };
+}
+```
+
+### flipX
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: FlipInXOptions;      // :enter 动画参数，使用 flipInX
+    leave?: FlipOutXOptions;     // :leave 动画参数，使用 flipOutX
+}
+```
+
+### flipInY
+
+- 动画组件
+
+``` js
+// 参数 - FlipInYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 0%   偏移量处的 perspective, rotateY 值，默认值 400px, 90deg
+    percent0?: { perspective?: string; rotate?: string; };
+
+    // 动画在 40%  偏移量处的 perspective, rotateY 值，默认值 400px, -20deg
+    percent40?: { perspective?: string; rotate?: string; };
+
+    // 动画在 60%  偏移量处的 perspective, rotateY 值，默认值 400px, 10deg
+    percent60?: { perspective?: string; rotate?: string; };
+
+    // 动画在 80%  偏移量处的 perspective, rotateY 值，默认值 400px, -5deg
+    percent80?: { perspective?: string; rotate?: string; };
+
+    // 动画在 100% 偏移量处的 perspective, rotateY 值，默认值 400px, 0
+    percent100?: { perspective?: string; rotate?: string; };
+}
+```
+
+### flipOutY
+
+- 动画组件
+
+``` js
+// 参数 - FlipOutYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 750
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 0%   偏移量处的 perspective, rotateY 值，默认值 400px, 0
+    percent0?: { perspective?: string; rotate?: string; };
+
+    // 动画在 30%  偏移量处的 perspective, rotateY 值，默认值 400px, -20deg
+    percent30?: { perspective?: string; rotate?: string; };
+
+    // 动画在 100% 偏移量处的 perspective, rotateY 值，默认值 400px, 90deg
+    percent100?: { perspective?: string; rotate?: string; };
+}
+```
+
+### flipY
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: FlipInYOptions;      // :enter 动画参数，使用 flipInY
+    leave?: FlipOutYOptions;     // :leave 动画参数，使用 flipOutY
+}
+```
+
+## light-speed
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 530
+  }
+}
+
+demo/animation/light-speed.component.ts
+```
+
+### lightSpeedIn
+
+- 动画组件
+
+``` js
+// 参数 - LightSpeedInOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease-out
+
+    // 动画在 0%  偏移量处的 translateX, skewX 值，默认值 100%, -30deg
+    percent0?: { translateX?: string; skewX?: string };
+
+    // 动画在 60% 偏移量处的 skewX 值，默认值 20deg
+    percent60?: { skewX?: string };
+
+    // 动画在 80% 偏移量处的 skewX 值，默认值 -5deg
+    percent80?: { skewX?: string };
+}
+```
+
+### lightSpeedOut
+
+- 动画组件
+
+``` js
+// 参数 - LightSpeedOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 750
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease-in
+
+    // 动画在 100% 偏移量处的 translateX, skewX 值，默认值 100%, 30deg
+    percent100?: { translateX?: string; skewX?: string };
+}
+```
+
+### lightSpeed
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;               // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;                  // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;                 // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: LightSpeedInOptions;     // :enter 动画参数，使用 lightSpeedIn
+    leave?: LightSpeedOutOptions;    // :leave 动画参数，使用 lightSpeedOut
+}
+```
+
+## rotate
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 800
+  }
+}
+
+demo/animation/rotate.component.ts
+```
+
+### rotateIn
+
+- 动画组件
+
+``` js
+// 参数 - RotateInOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startDegrees?: string;  // 动画在 0% 偏移量处的 rotateZ 值，默认值 -200deg
+}
+```
+
+### rotateOut
+
+- 动画组件
+
+``` js
+// 参数 - RotateOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    endDegrees?: string;    // 动画在 100% 偏移量处的 rotateZ 值，默认值 200deg
+}
+```
+
+### rotate
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateIn
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOut
+}
+```
+
+### rotateInLeftDown
+
+- 动画组件
+
+``` js
+// 参数 - RotateInOptions
+{
+    duration?: number;        // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;           // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;          // 变化曲线，默认值 ease
+
+    startDegrees?: string;    // 动画在 0% 偏移量处的 rotateZ 值，默认值 -45deg
+}
+```
+
+### rotateInRightDown
+
+- 动画组件
+
+``` js
+// 参数 - RotateInOptions
+{
+    duration?: number;        // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;           // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;          // 变化曲线，默认值 ease
+
+    startDegrees?: string;    // 动画在 0% 偏移量处的 rotateZ 值，默认值 45deg
+}
+```
+
+### rotateInLeftUp
+
+- 动画组件
+
+``` js
+// 参数 - RotateInOptions
+{
+    duration?: number;        // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;           // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;          // 变化曲线，默认值 ease
+
+    startDegrees?: string;    // 动画在 0% 偏移量处的 rotateZ 值，默认值 45deg
+}
+```
+
+### rotateInRightUp
+
+- 动画组件
+
+``` js
+// 参数 - RotateInOptions
+{
+    duration?: number;        // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;           // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;          // 变化曲线，默认值 ease
+
+    startDegrees?: string;    // 动画在 0% 偏移量处的 rotateZ 值，默认值 -90deg
+}
+```
+
+### rotateOutLeftDown
+
+- 动画组件
+
+``` js
+// 参数 - RotateOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    endDegrees?: string;    // 动画在 100% 偏移量处的 rotateZ 值，默认值 45deg
+}
+```
+
+### rotateOutRightDown
+
+- 动画组件
+
+``` js
+// 参数 - RotateOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    endDegrees?: string;    // 动画在 100% 偏移量处的 rotateZ 值，默认值 -45deg
+}
+```
+
+### rotateOutLeftUp
+
+- 动画组件
+
+``` js
+// 参数 - RotateOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    endDegrees?: string;    // 动画在 100% 偏移量处的 rotateZ 值，默认值 -45deg
+}
+```
+
+### rotateOutRightUp
+
+- 动画组件
+
+``` js
+// 参数 - RotateOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    endDegrees?: string;    // 动画在 100% 偏移量处的 rotateZ 值，默认值 90deg
+}
+```
+
+### rotateLeftDown
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInLeftDown
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutLeftDown
+}
+```
+
+### rotateRightDown
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInRightDown
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutRightDown
+}
+```
+
+### rotateLeftUp
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInLeftUp
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutLeftUp
+}
+```
+
+### rotateRightUp
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInRightUp
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutRightUp
+}
+```
+
+### rotateLeftDownToUp
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInLeftDown
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutLeftUp
+}
+```
+
+### rotateLeftUpToDown
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInLeftUp
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutLeftDown
+}
+```
+
+### rotateRightDownToUp
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInRightDown
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutRightUp
+}
+```
+
+### rotateRightUpToDown
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInRightUp
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutRightDown
+}
+```
+
+### rotateLeftDownToRightUp
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInLeftDown
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutRightUp
+}
+```
+
+### rotateLeftUpToRightDown
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInLeftUp
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutRightDown
+}
+```
+
+### rotateRightUpToLeftDown
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInRightUp
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutLeftDown
+}
+```
+
+### rotateRightDownToLeftUp
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;           // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;              // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;             // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RotateInOptions;     // :enter 动画参数，使用 rotateInRightDown
+    leave?: RotateOutOptions;    // :leave 动画参数，使用 rotateOutLeftUp
+}
+```
+
+## zoom
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 800
+  }
+}
+
+demo/animation/zoom.component.ts
+```
+
+### zoomIn
+
+- 动画组件
+
+``` js
+// 参数 - ZoomInOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 800
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    startScale?: number;    // 动画在 0% 偏移量处的 scale3d 值，默认值 0.3
+}
+```
+
+### ZoomOut
+
+- 动画组件
+
+``` js
+// 参数 - ZoomOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 800
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    endScale?: number;      // 动画在 50% 偏移量处的 scale3d 值，默认值 0.3
+}
+```
+
+### zoom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;         // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;            // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;           // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ZoomInOptions;     // :enter 动画参数，使用 zoomIn
+    leave?: ZoomOutOptions;    // :leave 动画参数，使用 ZoomOut
+}
+```
+
+### zoomInLeft
+
+- 动画组件
+
+``` js
+// 参数 - ZoomInXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+    // 动画在 0%  偏移量处的 scale3d, translateX 值，默认值 0.1, -300%
+    percent0?: { scale?: number; translateX?: string };
+
+    // 动画在 60% 偏移量处的 scale3d, translateX 值，默认值 0.475, 10px
+    percent60?: { scale?: number; translateX?: string };
+}
+```
+
+### zoomInRight
+
+- 动画组件
+
+``` js
+// 参数 - ZoomInXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+    // 动画在 0%  偏移量处的 scale3d, translateX 值，默认值 0.1, 300%
+    percent0?: { scale?: number; translateX?: string };
+
+    // 动画在 60% 偏移量处的 scale3d, translateX 值，默认值 0.475, -10px
+    percent60?: { scale?: number; translateX?: string };
+}
+```
+
+### zoomInTop
+
+- 动画组件
+
+``` js
+// 参数 - ZoomInYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+    // 动画在 0%  偏移量处的 scale3d, translateY 值，默认值 0.1, -400%
+    percent0?: { scale?: number; translateY?: string };
+
+    // 动画在 60% 偏移量处的 scale3d, translateY 值，默认值 0.475, 20px
+    percent60?: { scale?: number; translateY?: string };
+}
+```
+
+### zoomInBottom
+
+- 动画组件
+
+``` js
+// 参数 - ZoomInYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+    // 动画在 0%  偏移量处的 scale3d, translateY 值，默认值 0.1, 400%
+    percent0?: { scale?: number; translateY?: string };
+
+    // 动画在 60% 偏移量处的 scale3d, translateY 值，默认值 0.475, -20px
+    percent60?: { scale?: number; translateY?: string };
+}
+```
+
+### zoomOutLeft
+
+- 动画组件
+
+``` js
+// 参数 - ZoomOutXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 40%  偏移量处的 scale3d, translateX 值，默认值 0.475, 10px
+    percent40?: { scale?: number; translateX?: string };
+
+    // 动画在 100% 偏移量处的 scale3d, translateX 值，默认值 0.1, -300%
+    percent100?: { scale?: number; translateX?: string };
+}
+```
+
+### zoomOutRight
+
+- 动画组件
+
+``` js
+// 参数 - ZoomOutXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 40%  偏移量处的 scale3d, translateX 值，默认值 0.475, -10px
+    percent40?: { scale?: number; translateX?: string };
+
+    // 动画在 100% 偏移量处的 scale3d, translateX 值，默认值 0.1, 300%
+    percent100?: { scale?: number; translateX?: string };
+}
+```
+
+### zoomOutTop
+
+- 动画组件
+
+``` js
+// 参数 - ZoomOutYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 40%  偏移量处的 scale3d, translateY 值，默认值 0.475, 20px
+    percent40?: { scale?: number; translateY?: string };
+
+    // 动画在 100% 偏移量处的 scale3d, translateY 值，默认值 0, -400%
+    percent100?: { scale?: number; translateY?: string };
+}
+```
+
+### zoomOutBottom
+
+- 动画组件
+
+``` js
+// 参数 - ZoomOutYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1000
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 40%  偏移量处的 scale3d, translateY 值，默认值 0.475, -20px
+    percent40?: { scale?: number; translateY?: string };
+
+    // 动画在 100% 偏移量处的 scale3d, translateY 值，默认值 0, 400%
+    percent100?: { scale?: number; translateY?: string };
+}
+```
+
+### zoomLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ZoomInXOptions;     // :enter 动画参数，使用 zoomInLeft
+    leave?: ZoomOutXOptions;    // :leave 动画参数，使用 zoomOutLeft
+}
+```
+
+### zoomRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ZoomInXOptions;     // :enter 动画参数，使用 zoomInRight
+    leave?: ZoomOutXOptions;    // :leave 动画参数，使用 zoomOutRight
+}
+```
+
+### zoomLeftToRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ZoomInXOptions;     // :enter 动画参数，使用 zoomInLeft
+    leave?: ZoomOutXOptions;    // :leave 动画参数，使用 zoomOutRight
+}
+```
+
+### zoomRightToLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ZoomInXOptions;     // :enter 动画参数，使用 zoomInRight
+    leave?: ZoomOutXOptions;    // :leave 动画参数，使用 zoomOutLeft
+}
+```
+
+### zoomTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ZoomInYOptions;     // :enter 动画参数，使用 zoomInTop
+    leave?: ZoomOutYOptions;    // :leave 动画参数，使用 zoomOutTop
+}
+```
+
+### zoomBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ZoomInYOptions;     // :enter 动画参数，使用 zoomInBottom
+    leave?: ZoomOutYOptions;    // :leave 动画参数，使用 zoomOutBottom
+}
+```
+
+## hinge
+
+``` angular-files
+demo/animation/hinge.component.ts
+```
+
+### hingeOut
+
+- 动画组件
+
+``` js
+// 参数 - HingeOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 1500
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    percent20?: { rotateZ?: string; };     // 动画在 20%  偏移量处的 rotateZ 值，默认值 80deg
+    percent40?: { rotateZ?: string; };     // 动画在 40%  偏移量处的 rotateZ 值，默认值 60deg
+    percent60?: { rotateZ?: string; };     // 动画在 60%  偏移量处的 rotateZ 值，默认值 80deg
+    percent80?: { rotateZ?: string; };     // 动画在 80%  偏移量处的 rotateZ 值，默认值 60deg
+    percent100?: { translateY?: string };  // 动画在 100% 偏移量处的 translateY 值，默认值 600%
+}
+```
+
+### hinge
+
+- 固定动画
+
+``` js
+// 参数同 HingeOutOptions
+// 只有 :leave 动画，没有 :enter 动画
+```
+
+## jack-in-the-box
+
+``` angular-files
+demo/animation/jack-in-the-box.component.ts
+```
+
+### jackInTheBoxIn
+
+- 动画组件
+
+``` js
+// 参数 - JackInTheBoxInOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 800
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    percent0?: { scale?: string; rotate?: string };   // 动画在 0%  偏移量处的 scale3d, rotate3d 值，默认值 0.1, 30deg
+    percent50?: { rotate?: string; };                 // 动画在 50%  偏移量处的 rotateZ 值，默认值 -10deg
+    percent70?: { rotate?: string; };                 // 动画在 70%  偏移量处的 rotateZ 值，默认值 3deg
+}
+```
+
+### jackInTheBox
+
+- 固定动画
+
+``` js
+// 参数同 JackInTheBoxInOptions
+// 只有 :enter 动画，没有 :leave 动画
+```
+
+## roll
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 530
+  }
+}
+
+demo/animation/roll.component.ts
+```
+
+### rollIn
+
+- 动画组件
+
+``` js
+// 参数 - RollInOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 0% 偏移量处的 translateX, rotateZ 值，默认值 -100%, -120deg
+    percent0?: { translateX?: string; rotateZ?: string };
+}
+```
+
+### rollOut
+
+- 动画组件
+
+``` js
+// 参数 - RollOutOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 600
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 ease
+
+    // 动画在 100% 偏移量处的 translateX, rotateZ 值，默认值 100%, 120deg
+    percent100?: { translateX?: string; rotateZ?: string };
+}
+```
+
+### roll
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: RollInOptions;      // :enter 动画参数，使用 rollIn
+    leave?: RollOutOptions;     // :leave 动画参数，使用 rollOut
 }
 ```

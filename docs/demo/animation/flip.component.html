@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="section">flip</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flipIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@flipIn]="flipInState"
+           (@flipIn.done)="flipInState = 'stop'"
+           (click)="flipInState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flip</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="flipShow" @flip>Animate</div>
+      <button class="button" (click)="flipShow = !flipShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">flip - 水平方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flipInX</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@flipInX]="flipInXState"
+           (@flipInX.done)="flipInXState = 'stop'"
+           (click)="flipInXState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flipOutX</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@flipOutX]="flipOutXState"
+           (@flipOutX.done)="flipOutXState = 'stop'"
+           (click)="flipOutXState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flipX</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="flipXShow" @flipX>Animate</div>
+      <button class="button" (click)="flipXShow = !flipXShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">flip - 垂直方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flipInY</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@flipInY]="flipInYState"
+           (@flipInY.done)="flipInYState = 'stop'"
+           (click)="flipInYState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flipOutY</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@flipOutY]="flipOutYState"
+           (@flipOutY.done)="flipOutYState = 'stop'"
+           (click)="flipOutYState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">flipY</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="flipYShow" @flipY>Animate</div>
+      <button class="button" (click)="flipYShow = !flipYShow">Click me</button>
+    </div>
+  </div>
+</div>

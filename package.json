@@ -1,6 +1,6 @@
 {
   "name": "cmjs-lib",
-  "version": "0.4.9",
+  "version": "0.5.1",
   "description": "angular common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
@@ -22,7 +22,12 @@
   "keywords": [
     "angular",
     "common",
-    "lib"
+    "lib",
+    "animate",
+    "animation",
+    "decorator",
+    "util",
+    "service"
   ],
   "author": "wei.zhang",
   "license": "MIT",

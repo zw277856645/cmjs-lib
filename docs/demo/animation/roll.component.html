@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="item">
+    <div class="head">
+      <div class="title">rollIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rollIn]="rollInState"
+           (@rollIn.done)="rollInState = 'stop'"
+           (click)="rollInState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rollOut</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rollOut]="rollOutState"
+           (@rollOut.done)="rollOutState = 'stop'"
+           (click)="rollOutState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">roll</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="show" @roll>Animate</div>
+      <button class="button" (click)="show = !show">Click me</button>
+    </div>
+  </div>
+</div>

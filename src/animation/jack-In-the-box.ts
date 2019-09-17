@@ -5,9 +5,9 @@ export interface JackInTheBoxInOptions extends AnimOptions {
 
     percent0?: { scale?: string; rotate?: string };
 
-    percent50?: { scale?: string; };
+    percent50?: { rotate?: string; };
 
-    percent70?: { scale?: string; };
+    percent70?: { rotate?: string; };
 }
 
 export function jackInTheBoxIn(options: JackInTheBoxInOptions = {}) {
@@ -47,8 +47,9 @@ export function jackInTheBoxIn(options: JackInTheBoxInOptions = {}) {
                 percent0A: (options.percent0 && options.percent0.scale) || 0.1,
                 percent0B: (options.percent0 && options.percent0.rotate) || '30deg',
 
-                percent50: (options.percent50 && options.percent50.scale) || '-10deg',
-                percent70: (options.percent70 && options.percent70.scale) || '3deg'
+                percent50: (options.percent50 && options.percent50.rotate) || '-10deg',
+
+                percent70: (options.percent70 && options.percent70.rotate) || '3deg'
             }
         }
     );

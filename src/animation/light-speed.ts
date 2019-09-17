@@ -7,9 +7,9 @@ export interface LightSpeedInOptions extends AnimOptions {
 
     percent0?: { translateX?: string; skewX?: string };
 
-    percent60?: { translateX?: string; skewX?: string };
+    percent60?: { skewX?: string };
 
-    percent80?: { translateX?: string; skewX?: string };
+    percent80?: { skewX?: string };
 }
 
 export function lightSpeedIn(options: LightSpeedInOptions = {}) {

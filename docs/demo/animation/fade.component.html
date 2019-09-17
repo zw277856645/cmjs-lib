@@ -89,4 +89,48 @@
   </div>
 
   <div class="section">fade - 垂直方向（结合 slide 动画）</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeTopShow" @fadeTop>Animate</div>
+      <button class="button" (click)="fadeTopShow = !fadeTopShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeBottomShow" @fadeBottom>Animate</div>
+      <button class="button" (click)="fadeBottomShow = !fadeBottomShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeTopToBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeTopToBottomShow" @fadeTopToBottom>Animate</div>
+      <button class="button" (click)="fadeTopToBottomShow = !fadeTopToBottomShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">fadeBottomToTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="fadeBottomToTopShow" @fadeBottomToTop>Animate</div>
+      <button class="button" (click)="fadeBottomToTopShow = !fadeBottomToTopShow">Click me</button>
+    </div>
+  </div>
 </div>

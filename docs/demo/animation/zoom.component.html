@@ -1,0 +1,232 @@
+<div class="container">
+  <div class="section">zoom - center</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomIn]="zoomInState"
+           (@zoomIn.done)="zoomInState = 'stop'"
+           (click)="zoomInState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomOut</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomOut]="zoomOutState"
+           (@zoomOut.done)="zoomOutState = 'stop'"
+           (click)="zoomOutState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="zoomShow" @zoom>Animate</div>
+      <button class="button" (click)="zoomShow = !zoomShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">zoom - left/right/up/down</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomInLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomInLeft]="zoomInLeftState"
+           (@zoomInLeft.done)="zoomInLeftState = 'stop'"
+           (click)="zoomInLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomOutLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomOutLeft]="zoomOutLeftState"
+           (@zoomOutLeft.done)="zoomOutLeftState = 'stop'"
+           (click)="zoomOutLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomInRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomInRight]="zoomInRightState"
+           (@zoomInRight.done)="zoomInRightState = 'stop'"
+           (click)="zoomInRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomOutRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomOutRight]="zoomOutRightState"
+           (@zoomOutRight.done)="zoomOutRightState = 'stop'"
+           (click)="zoomOutRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomInTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomInTop]="zoomInTopState"
+           (@zoomInTop.done)="zoomInTopState = 'stop'"
+           (click)="zoomInTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomOutTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomOutTop]="zoomOutTopState"
+           (@zoomOutTop.done)="zoomOutTopState = 'stop'"
+           (click)="zoomOutTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomInBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomInBottom]="zoomInBottomState"
+           (@zoomInBottom.done)="zoomInBottomState = 'stop'"
+           (click)="zoomInBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomOutBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@zoomOutBottom]="zoomOutBottomState"
+           (@zoomOutBottom.done)="zoomOutBottomState = 'stop'"
+           (click)="zoomOutBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="zoomLeftShow" @zoomLeft>Animate</div>
+      <button class="button" (click)="zoomLeftShow = !zoomLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="zoomRightShow" @zoomRight>Animate</div>
+      <button class="button" (click)="zoomRightShow = !zoomRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomLeftToRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="zoomLeftToRightShow" @zoomLeftToRight>Animate</div>
+      <button class="button" (click)="zoomLeftToRightShow = !zoomLeftToRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomRightToLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="zoomRightToLeftShow" @zoomRightToLeft>Animate</div>
+      <button class="button" (click)="zoomRightToLeftShow = !zoomRightToLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="zoomTopShow" @zoomTop>Animate</div>
+      <button class="button" (click)="zoomTopShow = !zoomTopShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">zoomBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="zoomBottomShow" @zoomBottom>Animate</div>
+      <button class="button" (click)="zoomBottomShow = !zoomBottomShow">Click me</button>
+    </div>
+  </div>
+</div>

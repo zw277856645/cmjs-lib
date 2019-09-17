@@ -87,13 +87,11 @@ function zoomInXBase(options: ZoomInXOptions, defs: ZoomInXOptions) {
                 style({
                     opacity: 0,
                     transform: zoomXFormatTransform('{{ percent0A }}', '{{ percent0B }}'),
-                    'animation-timing-function': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
                     offset: 0
                 }),
                 style({
                     opacity: 1,
                     transform: zoomXFormatTransform('{{ percent60A }}', '{{ percent60B }}'),
-                    'animation-timing-function': 'cubic-bezier(0.175, 0.885, 0.32, 1)',
                     offset: 0.6
                 })
             ])
@@ -102,7 +100,7 @@ function zoomInXBase(options: ZoomInXOptions, defs: ZoomInXOptions) {
             params: {
                 duration: options.duration || 1000,
                 delay: options.delay || 0,
-                easing: options.easing || 'ease',
+                easing: options.easing || 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
 
                 percent0A: (options.percent0 && options.percent0.scale) || defs.percent0.scale,
                 percent0B: (options.percent0 && options.percent0.translateX) || defs.percent0.translateX,
@@ -161,13 +159,11 @@ function zoomInYBase(options: ZoomInYOptions, defs: ZoomInYOptions) {
                 style({
                     opacity: 0,
                     transform: zoomYFormatTransform('{{ percent0A }}', '{{ percent0B }}'),
-                    'animation-timing-function': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
                     offset: 0
                 }),
                 style({
                     opacity: 1,
                     transform: zoomYFormatTransform('{{ percent60A }}', '{{ percent60B }}'),
-                    'animation-timing-function': 'cubic-bezier(0.175, 0.885, 0.32, 1)',
                     offset: 0.6
                 })
             ])
@@ -176,7 +172,7 @@ function zoomInYBase(options: ZoomInYOptions, defs: ZoomInYOptions) {
             params: {
                 duration: options.duration || 1000,
                 delay: options.delay || 0,
-                easing: options.easing || 'ease',
+                easing: options.easing || 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
 
                 percent0A: (options.percent0 && options.percent0.scale) || defs.percent0.scale,
                 percent0B: (options.percent0 && options.percent0.translateY) || defs.percent0.translateY,

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { fadeIn, fadeOut, fade, fadeLeft, fadeRight, fadeLeftToRight, fadeRightToLeft } from 'cmjs-lib';
+import {
+    fadeIn, fadeOut, fade, fadeLeft, fadeRight, fadeLeftToRight, fadeRightToLeft, fadeTop, fadeBottom, fadeTopToBottom,
+    fadeBottomToTop
+} from 'cmjs-lib';
 
 @Component({
     templateUrl: './fade.component.html',
@@ -16,7 +19,11 @@ import { fadeIn, fadeOut, fade, fadeLeft, fadeRight, fadeLeftToRight, fadeRightT
         fadeLeft(),
         fadeRight(),
         fadeLeftToRight(),
-        fadeRightToLeft()
+        fadeRightToLeft(),
+        fadeTop(),
+        fadeBottom(),
+        fadeTopToBottom(),
+        fadeBottomToTop()
     ]
 })
 export class FadeComponent {
@@ -29,4 +36,8 @@ export class FadeComponent {
     fadeRightShow = false;
     fadeLeftToRightShow = false;
     fadeRightToLeftShow = false;
+    fadeTopShow = false;
+    fadeBottomShow = false;
+    fadeTopToBottomShow = false;
+    fadeBottomToTopShow = false;
 }
