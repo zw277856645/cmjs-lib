@@ -1,3 +1,4 @@
+// animate.css
 export * from './bounce';
 export * from './bounce-drop';
 export * from './fade';
@@ -19,3 +20,6 @@ export * from './swing';
 export * from './tada';
 export * from './wobble';
 export * from './zoom';
+
+// custom
+export * from './shrink';
