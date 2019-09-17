@@ -65,9 +65,9 @@ function shrinkXBase(options: ShrinkXOptions, origin: string, defs: ShrinkXOptio
                 percent0B: (options.percent0 && options.percent0.scaleX) || defs.percent0.scaleX,
                 percent0C: (options.percent0 && options.percent0.width) || defs.percent0.width,
 
-                percent100A: (options.percent0 && options.percent0.opacity) || defs.percent100.opacity,
-                percent100B: (options.percent0 && options.percent0.scaleX) || defs.percent100.scaleX,
-                percent100C: (options.percent0 && options.percent0.width) || defs.percent100.width
+                percent100A: (options.percent100 && options.percent100.opacity) || defs.percent100.opacity,
+                percent100B: (options.percent100 && options.percent100.scaleX) || defs.percent100.scaleX,
+                percent100C: (options.percent100 && options.percent100.width) || defs.percent100.width
             }
         }
     );
@@ -209,9 +209,9 @@ function shrinkYBase(options: ShrinkYOptions, origin: string, defs: ShrinkYOptio
                 percent0B: (options.percent0 && options.percent0.scaleY) || defs.percent0.scaleY,
                 percent0C: (options.percent0 && options.percent0.height) || defs.percent0.height,
 
-                percent100A: (options.percent0 && options.percent0.opacity) || defs.percent100.opacity,
-                percent100B: (options.percent0 && options.percent0.scaleY) || defs.percent100.scaleY,
-                percent100C: (options.percent0 && options.percent0.height) || defs.percent100.height
+                percent100A: (options.percent100 && options.percent100.opacity) || defs.percent100.opacity,
+                percent100B: (options.percent100 && options.percent100.scaleY) || defs.percent100.scaleY,
+                percent100C: (options.percent100 && options.percent100.height) || defs.percent100.height
             }
         }
     );
