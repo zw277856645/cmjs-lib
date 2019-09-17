@@ -94,19 +94,43 @@ function fadeX(options: SlideXTriggerOptions, name: string = 'fadeX') {
 }
 
 export function fadeLeft(options: SlideXTriggerOptions = {}, name: string = 'fadeLeft') {
-    return fadeX({ enter: { startX: '-100%', ...options.enter }, leave: { endX: '-100%', ...options.leave } }, name);
+    return fadeX({
+        enter: { startX: '-100%', ...options.enter },
+        leave: { endX: '-100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
 
 export function fadeRight(options: SlideXTriggerOptions = {}, name: string = 'fadeRight') {
-    return fadeX({ enter: { startX: '100%', ...options.enter }, leave: { endX: '100%', ...options.leave } }, name);
+    return fadeX({
+        enter: { startX: '100%', ...options.enter },
+        leave: { endX: '100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
 
 export function fadeLeftToRight(options: SlideXTriggerOptions = {}, name: string = 'fadeLeftToRight') {
-    return fadeX({ enter: { startX: '-100%', ...options.enter }, leave: { endX: '100%', ...options.leave } }, name);
+    return fadeX({
+        enter: { startX: '-100%', ...options.enter },
+        leave: { endX: '100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
 
 export function fadeRightToLeft(options: SlideXTriggerOptions = {}, name: string = 'fadeRightToLeft') {
-    return fadeX({ enter: { startX: '100%', ...options.enter }, leave: { endX: '-100%', ...options.leave } }, name);
+    return fadeX({
+        enter: { startX: '100%', ...options.enter },
+        leave: { endX: '-100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
 
 /* fade triggers y */
@@ -153,17 +177,41 @@ function fadeY(options: SlideYTriggerOptions, name: string = 'fadeY') {
 }
 
 export function fadeTop(options: SlideYTriggerOptions = {}, name: string = 'fadeTop') {
-    return fadeY({ enter: { startY: '-100%', ...options.enter }, leave: { endY: '-100%', ...options.leave } }, name);
+    return fadeY({
+        enter: { startY: '-100%', ...options.enter },
+        leave: { endY: '-100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
 
 export function fadeBottom(options: SlideYTriggerOptions = {}, name: string = 'fadeBottom') {
-    return fadeY({ enter: { startY: '100%', ...options.enter }, leave: { endY: '100%', ...options.leave } }, name);
+    return fadeY({
+        enter: { startY: '100%', ...options.enter },
+        leave: { endY: '100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
 
 export function fadeTopToBottom(options: SlideYTriggerOptions = {}, name: string = 'fadeTopToBottom') {
-    return fadeY({ enter: { startY: '-100%', ...options.enter }, leave: { endY: '100%', ...options.leave } }, name);
+    return fadeY({
+        enter: { startY: '-100%', ...options.enter },
+        leave: { endY: '100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
 
 export function fadeBottomToTop(options: SlideYTriggerOptions = {}, name: string = 'fadeBottomToTop') {
-    return fadeY({ enter: { startY: '100%', ...options.enter }, leave: { endY: '-100%', ...options.leave } }, name);
+    return fadeY({
+        enter: { startY: '100%', ...options.enter },
+        leave: { endY: '-100%', ...options.leave },
+        duration: options.duration,
+        delay: options.delay,
+        easing: options.easing
+    }, name);
 }
