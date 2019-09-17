@@ -5,6 +5,8 @@ import { animate, animation, group, keyframes, style } from '@angular/animations
 
 export interface ShrinkXOptions extends AnimOptions {
 
+    widthDurationRate?: number;
+
     percent0?: { opacity?: number; scaleX?: number; width?: string };
 
     percent100?: { opacity?: number; scaleX?: number; width?: string };
@@ -59,7 +61,7 @@ function shrinkXBase(options: ShrinkXOptions, origin: string, defs: ShrinkXOptio
                 origin,
 
                 // width 变化需比 scaleX 快一些，否则视觉上 width 有拖沓感
-                widthDuration: (options.duration || 400) * 0.9,
+                widthDuration: (options.duration || 400) * (options.widthDurationRate || defs.widthDurationRate),
 
                 percent0A: (options.percent0 && options.percent0.opacity) || defs.percent0.opacity,
                 percent0B: (options.percent0 && options.percent0.scaleX) || defs.percent0.scaleX,
@@ -75,6 +77,7 @@ function shrinkXBase(options: ShrinkXOptions, origin: string, defs: ShrinkXOptio
 
 export function shrinkInLeft(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'left center', {
+        widthDurationRate: 0.85,
         percent0: {
             opacity: 0,
             scaleX: 0,
@@ -90,6 +93,7 @@ export function shrinkInLeft(options: ShrinkXOptions = {}) {
 
 export function shrinkInRight(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'right center', {
+        widthDurationRate: 0.85,
         percent0: {
             opacity: 0,
             scaleX: 0,
@@ -105,6 +109,7 @@ export function shrinkInRight(options: ShrinkXOptions = {}) {
 
 export function shrinkOutLeft(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'left center', {
+        widthDurationRate: 0.85,
         percent0: {
             opacity: 1,
             scaleX: 1,
@@ -120,6 +125,7 @@ export function shrinkOutLeft(options: ShrinkXOptions = {}) {
 
 export function shrinkOutRight(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'right center', {
+        widthDurationRate: 0.85,
         percent0: {
             opacity: 1,
             scaleX: 1,
@@ -148,6 +154,8 @@ export function shrinkRight(options: ShrinkXTriggerOptions = {}, name: string = 
 /* shrink y */
 
 export interface ShrinkYOptions extends AnimOptions {
+
+    heightDurationRate?: number;
 
     percent0?: { opacity?: number; scaleY?: number; height?: string };
 
@@ -203,7 +211,7 @@ function shrinkYBase(options: ShrinkYOptions, origin: string, defs: ShrinkYOptio
                 origin,
 
                 // height 变化需比 scaleY 快一些，否则视觉上 height 有拖沓感
-                heightDuration: (options.duration || 400) * 0.9,
+                heightDuration: (options.duration || 400) * (options.heightDurationRate || defs.heightDurationRate),
 
                 percent0A: (options.percent0 && options.percent0.opacity) || defs.percent0.opacity,
                 percent0B: (options.percent0 && options.percent0.scaleY) || defs.percent0.scaleY,
@@ -219,6 +227,7 @@ function shrinkYBase(options: ShrinkYOptions, origin: string, defs: ShrinkYOptio
 
 export function shrinkInTop(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'top center', {
+        heightDurationRate: 0.85,
         percent0: {
             opacity: 0,
             scaleY: 0,
@@ -234,6 +243,7 @@ export function shrinkInTop(options: ShrinkYOptions = {}) {
 
 export function shrinkInBottom(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'bottom center', {
+        heightDurationRate: 0.85,
         percent0: {
             opacity: 0,
             scaleY: 0,
@@ -249,6 +259,7 @@ export function shrinkInBottom(options: ShrinkYOptions = {}) {
 
 export function shrinkOutTop(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'top center', {
+        heightDurationRate: 0.85,
         percent0: {
             opacity: 1,
             scaleY: 1,
@@ -264,6 +275,7 @@ export function shrinkOutTop(options: ShrinkYOptions = {}) {
 
 export function shrinkOutBottom(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'bottom center', {
+        heightDurationRate: 0.85,
         percent0: {
             opacity: 1,
             scaleY: 1,
