@@ -2235,3 +2235,193 @@ demo/animation/roll.component.ts
     leave?: RollOutOptions;     // :leave 动画参数，使用 rollOut
 }
 ```
+
+## shrink
+
+``` angular-files
+{
+  "embedOptions": {
+    "height": 800
+  }
+}
+
+demo/animation/shrink.component.ts
+```
+
+### shrinkInLeft
+
+- 动画组件
+
+``` js
+// 参数 - ShrinkXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 400
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 linear
+    
+    // 动画在 0%   偏移量处的 opacity, scaleX, width 值，默认值 0, 0, *
+    percent0?: { opacity?: number; scaleX?: number; width?: string };     
+    
+    // 动画在 100% 偏移量处的 opacity, scaleX, width 值，默认值 1, 1, *
+    percent100?: { opacity?: number; scaleX?: number; width?: string };  
+}
+```
+
+> width 通常不需要设置。scaleX 不会影响元素真实宽度，动画未结束前父元素宽度任然占据着，若需要处理这种情况，
+> 可设置 width 和 scaleX 同时变化
+
+### shrinkInRight
+
+- 动画组件
+
+``` js
+// 参数同 shrinkInLeft，主要 transform-origin 不同，固定不可修改
+```
+
+### shrinkOutLeft
+
+- 动画组件
+
+``` js
+// 参数 - ShrinkXOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 400
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 linear
+    
+    // 动画在 0%   偏移量处的 opacity, scaleX, width 值，默认值 1, 1, *
+    percent0?: { opacity?: number; scaleX?: number; width?: string };     
+    
+    // 动画在 100% 偏移量处的 opacity, scaleX, width 值，默认值 0, 0, *
+    percent100?: { opacity?: number; scaleX?: number; width?: string };  
+}
+```
+
+### shrinkOutRight
+
+- 动画组件
+
+``` js
+// 参数同 shrinkOutLeft，主要 transform-origin 不同，固定不可修改
+```
+
+### shrinkLeft
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ShrinkXOptions;     // :enter 动画参数，使用 shrinkInLeft
+    leave?: ShrinkXOptions;     // :leave 动画参数，使用 shrinkOutLeft
+}
+```
+
+### shrinkRight
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ShrinkXOptions;     // :enter 动画参数，使用 shrinkInRight
+    leave?: ShrinkXOptions;     // :leave 动画参数，使用 shrinkOutRight
+}
+```
+
+### shrinkInTop
+
+- 动画组件
+
+``` js
+// 参数 - ShrinkYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 400
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 linear
+    
+    // 动画在 0%   偏移量处的 opacity, scaleY, height 值，默认值 0, 0, *
+    percent0?: { opacity?: number; scaleY?: number; height?: string };     
+    
+    // 动画在 100% 偏移量处的 opacity, scaleY, height 值，默认值 1, 1, *
+    percent100?: { opacity?: number; scaleY?: number; height?: string };  
+}
+```
+
+> height 通常不需要设置。scaleY 不会影响元素真实高度，动画未结束前父元素高度任然占据着，若需要处理这种情况，
+> 可设置 height 和 scaleY 同时变化
+
+### shrinkInBottom
+
+- 动画组件
+
+``` js
+// 参数同 shrinkInTop，主要 transform-origin 不同，固定不可修改
+```
+
+### shrinkOutTop
+
+- 动画组件
+
+``` js
+// 参数 - ShrinkYOptions
+{
+    duration?: number;      // 持续时间，单位毫秒(ms)，默认值 400
+    delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
+    easing?: string;        // 变化曲线，默认值 linear
+    
+    // 动画在 0%   偏移量处的 opacity, scaleY, height 值，默认值 1, 1, *
+    percent0?: { opacity?: number; scaleY?: number; height?: string };     
+    
+    // 动画在 100% 偏移量处的 opacity, scaleY, height 值，默认值 0, 0, *
+    percent100?: { opacity?: number; scaleY?: number; height?: string };  
+}
+```
+
+### shrinkOutBottom
+
+- 动画组件
+
+``` js
+// 参数同 shrinkOutTop，主要 transform-origin 不同，固定不可修改
+```
+
+### shrinkTop
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ShrinkYOptions;     // :enter 动画参数，使用 shrinkInTop
+    leave?: ShrinkYOptions;     // :leave 动画参数，使用 shrinkOutTop
+}
+```
+
+### shrinkBottom
+
+- 固定动画
+
+``` js
+// 参数
+{
+    duration?: number;          // 共同持续时间，优先级低于 enter/leave 自身的 duration
+    delay?: number;             // 共同延时时间，优先级低于 enter/leave 自身的 delay
+    easing?: string;            // 共同变化曲线，优先级低于 enter/leave 自身的 easing
+
+    enter?: ShrinkYOptions;     // :enter 动画参数，使用 shrinkInBottom
+    leave?: ShrinkYOptions;     // :leave 动画参数，使用 shrinkOutBottom
+}
+```
