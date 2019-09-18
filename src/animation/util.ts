@@ -15,10 +15,6 @@ export interface AnimOptions {
     easing?: string;
 }
 
-export function parseTriggerOptions<T extends AnimOptions>(src: T, { duration, delay, easing }: AnimOptions): T {
-    return { duration, delay, easing, ...(src || {} as T) };
-}
-
 export interface CommonTriggerOptions<A extends AnimOptions, B extends AnimOptions = A> extends AnimOptions {
 
     enter?: A;
@@ -34,7 +30,25 @@ export function commonTriggerCreator<A extends AnimOptions, B extends AnimOption
     leaveHandler: (options: B) => AnimationReferenceMetadata
 ) {
     return trigger(name, [
-        transition(':enter', [ useAnimation(enterHandler(parseTriggerOptions(options.enter, options))) ]),
-        transition(':leave', [ useAnimation(leaveHandler(parseTriggerOptions(options.leave, options))) ])
+        transition(':enter', [
+            useAnimation(
+                enterHandler({
+                    duration: options.duration,
+                    delay: options.delay,
+                    easing: options.easing,
+                    ...options.enter
+                })
+            )
+        ]),
+        transition(':leave', [
+            useAnimation(
+                leaveHandler({
+                    duration: options.duration,
+                    delay: options.delay,
+                    easing: options.easing,
+                    ...options.leave
+                })
+            )
+        ])
     ]);
 }

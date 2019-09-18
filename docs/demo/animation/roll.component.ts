@@ -15,7 +15,7 @@ import { rollIn, rollOut, roll } from 'cmjs-lib';
         roll()
     ]
 })
-export class PulseComponent {
+export class RollComponent {
 
     rollInState = 'stop';
     rollOutState = 'stop';

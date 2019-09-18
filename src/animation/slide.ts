@@ -1,5 +1,5 @@
-import { animate, animation, keyframes, state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { AnimOptions, CommonTriggerOptions, parseTriggerOptions } from './util';
+import { animate, animation, keyframes, style } from '@angular/animations';
+import { AnimOptions, commonTriggerCreator, CommonTriggerOptions } from './util';
 
 /* slide in x */
 
@@ -103,136 +103,38 @@ export function slideOutBottom(options: SlideYOptions = {}) {
 
 export type SlideXTriggerOptions = CommonTriggerOptions<SlideXOptions>;
 
-export function slideX(options: SlideXTriggerOptions, name: string = 'slideX') {
-    return trigger(name, [
-        state(
-            'void',
-            style({ transform: 'translate3d({{ startX }}, 0, 0)' }),
-            {
-                params: {
-                    startX: options.enter && options.enter.startX || 0
-                }
-            }
-        ),
-        state(
-            '*',
-            style({ transform: 'translate3d({{ endX }}, 0, 0)' }),
-            {
-                params: {
-                    endX: options.enter && options.enter.endX || 0
-                }
-            }
-        ),
-        transition(':enter', [ useAnimation(slideInX(parseTriggerOptions(options.enter, options))) ]),
-        transition(':leave', [ useAnimation(slideInX(parseTriggerOptions(options.leave, options))) ])
-    ]);
-}
-
 export function slideLeft(options: SlideXTriggerOptions = {}, name: string = 'slideLeft') {
-    return slideX({
-        enter: { startX: '-100%', ...options.enter },
-        leave: { endX: '-100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInLeft, slideOutLeft);
 }
 
 export function slideRight(options: SlideXTriggerOptions = {}, name: string = 'slideRight') {
-    return slideX({
-        enter: { startX: '100%', ...options.enter },
-        leave: { endX: '100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInRight, slideOutRight);
 }
 
 export function slideLeftToRight(options: SlideXTriggerOptions = {}, name: string = 'slideLeftToRight') {
-    return slideX({
-        enter: { startX: '-100%', ...options.enter },
-        leave: { endX: '100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInLeft, slideOutRight);
 }
 
 export function slideRightToLeft(options: SlideXTriggerOptions = {}, name: string = 'slideRightToLeft') {
-    return slideX({
-        enter: { startX: '100%', ...options.enter },
-        leave: { endX: '-100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInRight, slideOutLeft);
 }
 
 /* slide triggers y */
 
 export type SlideYTriggerOptions = CommonTriggerOptions<SlideYOptions>;
 
-export function slideY(options: SlideYTriggerOptions, name: string = 'slideY') {
-    return trigger(name, [
-        state(
-            'void',
-            style({ transform: 'translate3d(0, {{ startY }}, 0)' }),
-            {
-                params: {
-                    startY: options.enter && options.enter.startY || 0
-                }
-            }
-        ),
-        state(
-            '*',
-            style({ transform: 'translate3d(0, {{ endY }}, 0)' }),
-            {
-                params: {
-                    endY: options.enter && options.enter.endY || 0
-                }
-            }
-        ),
-        transition(':enter', [ useAnimation(slideInY(parseTriggerOptions(options.enter, options))) ]),
-        transition(':leave', [ useAnimation(slideInY(parseTriggerOptions(options.leave, options))) ])
-    ]);
-}
-
 export function slideTop(options: SlideYTriggerOptions = {}, name: string = 'slideTop') {
-    return slideY({
-        enter: { startY: '-100%', ...options.enter },
-        leave: { endY: '-100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInTop, slideOutTop);
 }
 
 export function slideBottom(options: SlideYTriggerOptions = {}, name: string = 'slideBottom') {
-    return slideY({
-        enter: { startY: '100%', ...options.enter },
-        leave: { endY: '100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInBottom, slideOutBottom);
 }
 
 export function slideTopToBottom(options: SlideYTriggerOptions = {}, name: string = 'slideTopToBottom') {
-    return slideY({
-        enter: { startY: '-100%', ...options.enter },
-        leave: { endY: '100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInTop, slideOutBottom);
 }
 
 export function slideBottomToTop(options: SlideYTriggerOptions = {}, name: string = 'slideBottomToTop') {
-    return slideY({
-        enter: { startY: '100%', ...options.enter },
-        leave: { endY: '-100%', ...options.leave },
-        duration: options.duration,
-        delay: options.delay,
-        easing: options.easing
-    }, name);
+    return commonTriggerCreator(name, options, slideInBottom, slideOutTop);
 }

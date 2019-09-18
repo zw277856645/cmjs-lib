@@ -12,7 +12,7 @@ import { jackInTheBoxIn, jackInTheBox } from 'cmjs-lib';
         jackInTheBox()
     ]
 })
-export class HingeComponent {
+export class JackInTheBoxComponent {
 
     state = 'stop';
     show = false;

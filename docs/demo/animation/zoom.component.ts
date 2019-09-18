@@ -53,7 +53,7 @@ import {
         zoomBottom()
     ]
 })
-export class WobbleComponent {
+export class ZoomComponent {
 
     zoomInState = 'stop';
     zoomOutState = 'stop';
