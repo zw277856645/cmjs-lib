@@ -141,7 +141,7 @@ export interface BounceInXOptions extends AnimOptions {
     percent90?: string;
 }
 
-function bounceInXBase(options: BounceInXOptions, defs: BounceInXOptions) {
+export function bounceInXBase(options: BounceInXOptions, defs: BounceInXOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
@@ -204,7 +204,7 @@ export interface BounceOutXOptions extends AnimOptions {
     percent100?: string;
 }
 
-function bounceOutXBase(options: BounceOutXOptions, defs: BounceOutXOptions) {
+export function bounceOutXBase(options: BounceOutXOptions, defs: BounceOutXOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
@@ -286,7 +286,7 @@ export function bounceRightToLeft(options: BounceXTriggerOptions = {}, name: str
 export interface BounceInYOptions extends BounceInXOptions {
 }
 
-function bounceInYBase(options: BounceInYOptions, defs: BounceInYOptions) {
+export function bounceInYBase(options: BounceInYOptions, defs: BounceInYOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
@@ -352,7 +352,7 @@ export interface BounceOutYOptions extends AnimOptions {
     percent100?: string;
 }
 
-function bounceOutYBase(options: BounceOutYOptions, defs: BounceOutYOptions) {
+export function bounceOutYBase(options: BounceOutYOptions, defs: BounceOutYOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',

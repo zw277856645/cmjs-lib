@@ -75,11 +75,11 @@ export interface ZoomInXOptions extends AnimOptions {
     percent60?: { scale?: number; translateX?: string };
 }
 
-function zoomXFormatTransform(scaleAttr: string, translateAttr: string) {
+export function zoomXFormatTransform(scaleAttr: string, translateAttr: string) {
     return `scale3d(${scaleAttr}, ${scaleAttr}, ${scaleAttr}) translate3d(${translateAttr}, 0, 0)`;
 }
 
-function zoomInXBase(options: ZoomInXOptions, defs: ZoomInXOptions) {
+export function zoomInXBase(options: ZoomInXOptions, defs: ZoomInXOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
@@ -147,11 +147,11 @@ export interface ZoomInYOptions extends AnimOptions {
     percent60?: { scale?: number; translateY?: string };
 }
 
-function zoomYFormatTransform(scaleAttr: string, translateAttr: string) {
+export function zoomYFormatTransform(scaleAttr: string, translateAttr: string) {
     return `scale3d(${scaleAttr}, ${scaleAttr}, ${scaleAttr}) translate3d(0, ${translateAttr}, 0)`;
 }
 
-function zoomInYBase(options: ZoomInYOptions, defs: ZoomInYOptions) {
+export function zoomInYBase(options: ZoomInYOptions, defs: ZoomInYOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
@@ -219,7 +219,7 @@ export interface ZoomOutXOptions extends AnimOptions {
     percent100?: { scale?: number; translateX?: string };
 }
 
-function zoomOutXBase(options: ZoomOutXOptions, endOrigin: string, defs: ZoomOutXOptions) {
+export function zoomOutXBase(options: ZoomOutXOptions, endOrigin: string, defs: ZoomOutXOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
@@ -290,7 +290,7 @@ export interface ZoomOutYOptions extends AnimOptions {
     percent100?: { scale?: number; translateY?: string };
 }
 
-function zoomOutYBase(options: ZoomOutYOptions, endOrigin: string, defs: ZoomOutYOptions) {
+export function zoomOutYBase(options: ZoomOutYOptions, endOrigin: string, defs: ZoomOutYOptions) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',

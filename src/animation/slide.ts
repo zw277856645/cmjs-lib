@@ -103,7 +103,7 @@ export function slideOutBottom(options: SlideYOptions = {}) {
 
 export type SlideXTriggerOptions = CommonTriggerOptions<SlideXOptions>;
 
-function slideX(options: SlideXTriggerOptions, name: string = 'slideX') {
+export function slideX(options: SlideXTriggerOptions, name: string = 'slideX') {
     return trigger(name, [
         state(
             'void',
@@ -172,7 +172,7 @@ export function slideRightToLeft(options: SlideXTriggerOptions = {}, name: strin
 
 export type SlideYTriggerOptions = CommonTriggerOptions<SlideYOptions>;
 
-function slideY(options: SlideYTriggerOptions, name: string = 'slideY') {
+export function slideY(options: SlideYTriggerOptions, name: string = 'slideY') {
     return trigger(name, [
         state(
             'void',

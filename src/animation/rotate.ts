@@ -8,7 +8,7 @@ export interface RotateInOptions extends AnimOptions {
     startDegrees?: string;
 }
 
-function rotateInBase(options: RotateInOptions, origin: string) {
+export function rotateInBase(options: RotateInOptions, origin: string) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
@@ -67,7 +67,7 @@ export interface RotateOutOptions extends AnimOptions {
     endDegrees?: string;
 }
 
-function rotateOutBase(options: RotateOutOptions, origin: string) {
+export function rotateOutBase(options: RotateOutOptions, origin: string) {
     return animation(
         animate(
             '{{ duration }}ms {{ delay }}ms {{ easing }}',

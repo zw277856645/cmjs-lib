@@ -20,11 +20,11 @@ export function wobbleIn(options: WobbleInOptions = {}) {
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ transform: 'translate3d(0, 0, 0)', offset: 0 }),
-                style({ transform: formatTransform('{{ percent15A }}', '{{ percent15B }}'), offset: 0.15 }),
-                style({ transform: formatTransform('{{ percent30A }}', '{{ percent30B }}'), offset: 0.3 }),
-                style({ transform: formatTransform('{{ percent45A }}', '{{ percent45B }}'), offset: 0.45 }),
-                style({ transform: formatTransform('{{ percent60A }}', '{{ percent60B }}'), offset: 0.6 }),
-                style({ transform: formatTransform('{{ percent75A }}', '{{ percent75B }}'), offset: 0.75 }),
+                style({ transform: wobbleFormatTransform('{{ percent15A }}', '{{ percent15B }}'), offset: 0.15 }),
+                style({ transform: wobbleFormatTransform('{{ percent30A }}', '{{ percent30B }}'), offset: 0.3 }),
+                style({ transform: wobbleFormatTransform('{{ percent45A }}', '{{ percent45B }}'), offset: 0.45 }),
+                style({ transform: wobbleFormatTransform('{{ percent60A }}', '{{ percent60B }}'), offset: 0.6 }),
+                style({ transform: wobbleFormatTransform('{{ percent75A }}', '{{ percent75B }}'), offset: 0.75 }),
                 style({ transform: 'translate3d(0, 0, 0)', offset: 1 })
             ])
         ),
@@ -53,7 +53,7 @@ export function wobbleIn(options: WobbleInOptions = {}) {
     );
 }
 
-function formatTransform(translateAttr: string, rotateAttr: string) {
+export function wobbleFormatTransform(translateAttr: string, rotateAttr: string) {
     return `translate3d(${translateAttr}, 0, 0) rotate3d(0, 0, 1, ${rotateAttr})`;
 }
 

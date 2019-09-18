@@ -52,7 +52,7 @@ export function fade(options: AnimOptions = {}, name: string = 'fade') {
     ]);
 }
 
-function fadeX(options: SlideXTriggerOptions, name: string = 'fadeX') {
+export function fadeX(options: SlideXTriggerOptions, name: string = 'fadeX') {
     return trigger(name, [
         state(
             'void',
@@ -135,7 +135,7 @@ export function fadeRightToLeft(options: SlideXTriggerOptions = {}, name: string
 
 /* fade triggers y */
 
-function fadeY(options: SlideYTriggerOptions, name: string = 'fadeY') {
+export function fadeY(options: SlideYTriggerOptions, name: string = 'fadeY') {
     return trigger(name, [
         state(
             'void',

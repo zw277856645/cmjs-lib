@@ -28,15 +28,15 @@ export function tadaIn(options: TadaInOptions = {}) {
             '{{ duration }}ms {{ delay }}ms {{ easing }}',
             keyframes([
                 style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
-                style({ transform: formatTransform('{{ percent10A }}', '{{ percent10B }}'), offset: 0.1 }),
-                style({ transform: formatTransform('{{ percent20A }}', '{{ percent20B }}'), offset: 0.2 }),
-                style({ transform: formatTransform('{{ percent30A }}', '{{ percent30B }}'), offset: 0.3 }),
-                style({ transform: formatTransform('{{ percent40A }}', '{{ percent40B }}'), offset: 0.4 }),
-                style({ transform: formatTransform('{{ percent50A }}', '{{ percent50B }}'), offset: 0.5 }),
-                style({ transform: formatTransform('{{ percent60A }}', '{{ percent60B }}'), offset: 0.6 }),
-                style({ transform: formatTransform('{{ percent70A }}', '{{ percent70B }}'), offset: 0.7 }),
-                style({ transform: formatTransform('{{ percent80A }}', '{{ percent80B }}'), offset: 0.8 }),
-                style({ transform: formatTransform('{{ percent90A }}', '{{ percent90B }}'), offset: 0.9 }),
+                style({ transform: tadaFormatTransform('{{ percent10A }}', '{{ percent10B }}'), offset: 0.1 }),
+                style({ transform: tadaFormatTransform('{{ percent20A }}', '{{ percent20B }}'), offset: 0.2 }),
+                style({ transform: tadaFormatTransform('{{ percent30A }}', '{{ percent30B }}'), offset: 0.3 }),
+                style({ transform: tadaFormatTransform('{{ percent40A }}', '{{ percent40B }}'), offset: 0.4 }),
+                style({ transform: tadaFormatTransform('{{ percent50A }}', '{{ percent50B }}'), offset: 0.5 }),
+                style({ transform: tadaFormatTransform('{{ percent60A }}', '{{ percent60B }}'), offset: 0.6 }),
+                style({ transform: tadaFormatTransform('{{ percent70A }}', '{{ percent70B }}'), offset: 0.7 }),
+                style({ transform: tadaFormatTransform('{{ percent80A }}', '{{ percent80B }}'), offset: 0.8 }),
+                style({ transform: tadaFormatTransform('{{ percent90A }}', '{{ percent90B }}'), offset: 0.9 }),
                 style({ transform: 'scale3d(1, 1, 1)', offset: 1 })
             ])
         ),
@@ -77,7 +77,7 @@ export function tadaIn(options: TadaInOptions = {}) {
     );
 }
 
-function formatTransform(scaleAttr: string, rotateAttr: string) {
+export function tadaFormatTransform(scaleAttr: string, rotateAttr: string) {
     return `scale3d(${scaleAttr}, ${scaleAttr}, ${scaleAttr}) rotate3d(0, 0, 1, ${rotateAttr})`;
 }
 

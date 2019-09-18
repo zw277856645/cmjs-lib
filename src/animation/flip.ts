@@ -93,7 +93,7 @@ export function flipIn(options: FlipInOptions = {}) {
     );
 }
 
-function flipInFormatTransform(perspective: string, scale: string, translateZ: string, rotate: string) {
+export function flipInFormatTransform(perspective: string, scale: string, translateZ: string, rotate: string) {
     return `perspective(${perspective}) 
             scale3d(${scale}, ${scale}, ${scale}) 
             translate3d(0, 0, ${translateZ}) 
@@ -121,7 +121,7 @@ export interface FlipInXOptions extends AnimOptions {
     percent100?: { perspective?: string; rotate?: string; };
 }
 
-function flipInBase(options: FlipInXOptions, rotateX: number, rotateY: number) {
+export function flipInBase(options: FlipInXOptions, rotateX: number, rotateY: number) {
     return animation(
         [
             style({ 'backface-visibility': 'visible' }),
@@ -205,7 +205,7 @@ export interface FlipOutXOptions extends AnimOptions {
     percent100?: { perspective?: string; rotate?: string; };
 }
 
-function flipOutBase(options: FlipOutXOptions, rotateX: number, rotateY: number) {
+export function flipOutBase(options: FlipOutXOptions, rotateX: number, rotateY: number) {
     return animation(
         [
             style({ 'backface-visibility': 'visible' }),

@@ -12,7 +12,7 @@ export interface ShrinkXOptions extends AnimOptions {
     percent100?: { opacity?: number; scaleX?: number; width?: string };
 }
 
-function shrinkXBase(options: ShrinkXOptions, origin: string, defs: ShrinkXOptions) {
+export function shrinkXBase(options: ShrinkXOptions, origin: string, defs: ShrinkXOptions) {
     return animation(
         [
             style({
@@ -162,7 +162,7 @@ export interface ShrinkYOptions extends AnimOptions {
     percent100?: { opacity?: number; scaleY?: number; height?: string };
 }
 
-function shrinkYBase(options: ShrinkYOptions, origin: string, defs: ShrinkYOptions) {
+export function shrinkYBase(options: ShrinkYOptions, origin: string, defs: ShrinkYOptions) {
     return animation(
         [
             style({
