@@ -9,7 +9,7 @@ window.$docsify = {
         DemoBoxAngular.create({
             project: {
                 dependencies: {
-                    'cmjs-lib': '0.4.9'
+                    'cmjs-lib': '0.7.1'
                 }
             },
             embedOptions: {
