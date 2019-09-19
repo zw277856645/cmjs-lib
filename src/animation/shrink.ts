@@ -1,15 +1,13 @@
 import { AnimOptions, commonTriggerCreator, CommonTriggerOptions } from './util';
-import { animate, animation, group, keyframes, style } from '@angular/animations';
+import { animate, animation, keyframes, style } from '@angular/animations';
 
 /* shrink x */
 
 export interface ShrinkXOptions extends AnimOptions {
 
-    widthDurationRate?: number;
+    percent0?: { opacity?: number; scaleX?: number };
 
-    percent0?: { opacity?: number; scaleX?: number; width?: string };
-
-    percent100?: { opacity?: number; scaleX?: number; width?: string };
+    percent100?: { opacity?: number; scaleX?: number };
 }
 
 export function shrinkXBase(options: ShrinkXOptions, origin: string, defs: ShrinkXOptions) {
@@ -20,37 +18,21 @@ export function shrinkXBase(options: ShrinkXOptions, origin: string, defs: Shrin
                 'transform-origin': '{{ origin }}'
             }),
 
-            group([
-                animate(
-                    '{{ widthDuration }}ms {{ delay }}ms {{ easing }}',
-                    keyframes([
-                        style({
-                            width: '{{ percent0C }}',
-                            offset: 0
-                        }),
-                        style({
-                            width: '{{ percent100C }}',
-                            offset: 1
-                        })
-                    ])
-                ),
-
-                animate(
-                    '{{ duration }}ms {{ delay }}ms {{ easing }}',
-                    keyframes([
-                        style({
-                            opacity: '{{ percent0A }}',
-                            transform: 'scale3d({{ percent0B }}, 1, 1)',
-                            offset: 0
-                        }),
-                        style({
-                            opacity: '{{ percent100A }}',
-                            transform: 'scale3d({{ percent100B }}, 1, 1)',
-                            offset: 1
-                        })
-                    ])
-                )
-            ])
+            animate(
+                '{{ duration }}ms {{ delay }}ms {{ easing }}',
+                keyframes([
+                    style({
+                        opacity: '{{ percent0A }}',
+                        transform: 'scale3d({{ percent0B }}, 1, 1)',
+                        offset: 0
+                    }),
+                    style({
+                        opacity: '{{ percent100A }}',
+                        transform: 'scale3d({{ percent100B }}, 1, 1)',
+                        offset: 1
+                    })
+                ])
+            )
         ],
         {
             params: {
@@ -60,16 +42,11 @@ export function shrinkXBase(options: ShrinkXOptions, origin: string, defs: Shrin
 
                 origin,
 
-                // width 变化需比 scaleX 快一些，否则视觉上 width 有拖沓感
-                widthDuration: (options.duration || 400) * (options.widthDurationRate || defs.widthDurationRate),
-
                 percent0A: (options.percent0 && options.percent0.opacity) || defs.percent0.opacity,
                 percent0B: (options.percent0 && options.percent0.scaleX) || defs.percent0.scaleX,
-                percent0C: (options.percent0 && options.percent0.width) || defs.percent0.width,
 
                 percent100A: (options.percent100 && options.percent100.opacity) || defs.percent100.opacity,
-                percent100B: (options.percent100 && options.percent100.scaleX) || defs.percent100.scaleX,
-                percent100C: (options.percent100 && options.percent100.width) || defs.percent100.width
+                percent100B: (options.percent100 && options.percent100.scaleX) || defs.percent100.scaleX
             }
         }
     );
@@ -77,64 +54,52 @@ export function shrinkXBase(options: ShrinkXOptions, origin: string, defs: Shrin
 
 export function shrinkInLeft(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'left center', {
-        widthDurationRate: 0.85,
         percent0: {
             opacity: 0,
-            scaleX: 0,
-            width: '*'
+            scaleX: 0
         },
         percent100: {
             opacity: 1,
-            scaleX: 1,
-            width: '*'
+            scaleX: 1
         }
     });
 }
 
 export function shrinkInRight(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'right center', {
-        widthDurationRate: 0.85,
         percent0: {
             opacity: 0,
-            scaleX: 0,
-            width: '*'
+            scaleX: 0
         },
         percent100: {
             opacity: 1,
-            scaleX: 1,
-            width: '*'
+            scaleX: 1
         }
     });
 }
 
 export function shrinkOutLeft(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'left center', {
-        widthDurationRate: 0.85,
         percent0: {
             opacity: 1,
-            scaleX: 1,
-            width: '*'
+            scaleX: 1
         },
         percent100: {
             opacity: 0,
-            scaleX: 0,
-            width: '*'
+            scaleX: 0
         }
     });
 }
 
 export function shrinkOutRight(options: ShrinkXOptions = {}) {
     return shrinkXBase(options, 'right center', {
-        widthDurationRate: 0.85,
         percent0: {
             opacity: 1,
-            scaleX: 1,
-            width: '*'
+            scaleX: 1
         },
         percent100: {
             opacity: 0,
-            scaleX: 0,
-            width: '*'
+            scaleX: 0
         }
     });
 }
@@ -155,11 +120,9 @@ export function shrinkRight(options: ShrinkXTriggerOptions = {}, name: string = 
 
 export interface ShrinkYOptions extends AnimOptions {
 
-    heightDurationRate?: number;
+    percent0?: { opacity?: number; scaleY?: number };
 
-    percent0?: { opacity?: number; scaleY?: number; height?: string };
-
-    percent100?: { opacity?: number; scaleY?: number; height?: string };
+    percent100?: { opacity?: number; scaleY?: number };
 }
 
 export function shrinkYBase(options: ShrinkYOptions, origin: string, defs: ShrinkYOptions) {
@@ -170,37 +133,21 @@ export function shrinkYBase(options: ShrinkYOptions, origin: string, defs: Shrin
                 'transform-origin': '{{ origin }}'
             }),
 
-            group([
-                animate(
-                    '{{ heightDuration }}ms {{ delay }}ms {{ easing }}',
-                    keyframes([
-                        style({
-                            height: '{{ percent0C }}',
-                            offset: 0
-                        }),
-                        style({
-                            height: '{{ percent100C }}',
-                            offset: 1
-                        })
-                    ])
-                ),
-
-                animate(
-                    '{{ duration }}ms {{ delay }}ms {{ easing }}',
-                    keyframes([
-                        style({
-                            opacity: '{{ percent0A }}',
-                            transform: 'scale3d(1, {{ percent0B }}, 1)',
-                            offset: 0
-                        }),
-                        style({
-                            opacity: '{{ percent100A }}',
-                            transform: 'scale3d(1, {{ percent100B }}, 1)',
-                            offset: 1
-                        })
-                    ])
-                )
-            ])
+            animate(
+                '{{ duration }}ms {{ delay }}ms {{ easing }}',
+                keyframes([
+                    style({
+                        opacity: '{{ percent0A }}',
+                        transform: 'scale3d(1, {{ percent0B }}, 1)',
+                        offset: 0
+                    }),
+                    style({
+                        opacity: '{{ percent100A }}',
+                        transform: 'scale3d(1, {{ percent100B }}, 1)',
+                        offset: 1
+                    })
+                ])
+            )
         ],
         {
             params: {
@@ -210,16 +157,11 @@ export function shrinkYBase(options: ShrinkYOptions, origin: string, defs: Shrin
 
                 origin,
 
-                // height 变化需比 scaleY 快一些，否则视觉上 height 有拖沓感
-                heightDuration: (options.duration || 400) * (options.heightDurationRate || defs.heightDurationRate),
-
                 percent0A: (options.percent0 && options.percent0.opacity) || defs.percent0.opacity,
                 percent0B: (options.percent0 && options.percent0.scaleY) || defs.percent0.scaleY,
-                percent0C: (options.percent0 && options.percent0.height) || defs.percent0.height,
 
                 percent100A: (options.percent100 && options.percent100.opacity) || defs.percent100.opacity,
-                percent100B: (options.percent100 && options.percent100.scaleY) || defs.percent100.scaleY,
-                percent100C: (options.percent100 && options.percent100.height) || defs.percent100.height
+                percent100B: (options.percent100 && options.percent100.scaleY) || defs.percent100.scaleY
             }
         }
     );
@@ -227,64 +169,52 @@ export function shrinkYBase(options: ShrinkYOptions, origin: string, defs: Shrin
 
 export function shrinkInTop(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'top center', {
-        heightDurationRate: 0.85,
         percent0: {
             opacity: 0,
-            scaleY: 0,
-            height: '*'
+            scaleY: 0
         },
         percent100: {
             opacity: 1,
-            scaleY: 1,
-            height: '*'
+            scaleY: 1
         }
     });
 }
 
 export function shrinkInBottom(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'bottom center', {
-        heightDurationRate: 0.85,
         percent0: {
             opacity: 0,
-            scaleY: 0,
-            height: '*'
+            scaleY: 0
         },
         percent100: {
             opacity: 1,
-            scaleY: 1,
-            height: '*'
+            scaleY: 1
         }
     });
 }
 
 export function shrinkOutTop(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'top center', {
-        heightDurationRate: 0.85,
         percent0: {
             opacity: 1,
-            scaleY: 1,
-            height: '*'
+            scaleY: 1
         },
         percent100: {
             opacity: 0,
-            scaleY: 0,
-            height: '*'
+            scaleY: 0
         }
     });
 }
 
 export function shrinkOutBottom(options: ShrinkYOptions = {}) {
     return shrinkYBase(options, 'bottom center', {
-        heightDurationRate: 0.85,
         percent0: {
             opacity: 1,
-            scaleY: 1,
-            height: '*'
+            scaleY: 1
         },
         percent100: {
             opacity: 0,
-            scaleY: 0,
-            height: '*'
+            scaleY: 0
         }
     });
 }

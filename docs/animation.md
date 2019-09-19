@@ -2259,20 +2259,13 @@ demo/animation/shrink.component.ts
     delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
     easing?: string;        // 变化曲线，默认值 linear
     
-    // width 动画 duration 为原始 duration 的倍率，默认值 0.85
-    // width 变化需比 scaleX 快一些，否则视觉上 width 有拖沓感
-    widthDurationRate?: number;
+    // 动画在 0%   偏移量处的 opacity, scaleX 值，默认值 0, 0
+    percent0?: { opacity?: number; scaleX?: number };     
     
-    // 动画在 0%   偏移量处的 opacity, scaleX, width 值，默认值 0, 0, *
-    percent0?: { opacity?: number; scaleX?: number; width?: string };     
-    
-    // 动画在 100% 偏移量处的 opacity, scaleX, width 值，默认值 1, 1, *
-    percent100?: { opacity?: number; scaleX?: number; width?: string };  
+    // 动画在 100% 偏移量处的 opacity, scaleX 值，默认值 1, 1
+    percent100?: { opacity?: number; scaleX?: number };  
 }
 ```
-
-> width 通常不需要设置。scaleX 不会影响元素真实宽度，动画未结束前父元素宽度任然占据着，若需要处理这种情况，
-> 可设置 width 和 scaleX 同时变化
 
 ### shrinkInRight
 
@@ -2293,15 +2286,11 @@ demo/animation/shrink.component.ts
     delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
     easing?: string;        // 变化曲线，默认值 linear
     
-    // width 动画 duration 为原始 duration 的倍率，默认值 0.85
-    // width 变化需比 scaleX 快一些，否则视觉上 width 有拖沓感
-    widthDurationRate?: number;
+    // 动画在 0%   偏移量处的 opacity, scaleX 值，默认值 1, 1
+    percent0?: { opacity?: number; scaleX?: number };     
     
-    // 动画在 0%   偏移量处的 opacity, scaleX, width 值，默认值 1, 1, *
-    percent0?: { opacity?: number; scaleX?: number; width?: string };     
-    
-    // 动画在 100% 偏移量处的 opacity, scaleX, width 值，默认值 0, 0, *
-    percent100?: { opacity?: number; scaleX?: number; width?: string };  
+    // 动画在 100% 偏移量处的 opacity, scaleX 值，默认值 0, 0
+    percent100?: { opacity?: number; scaleX?: number };  
 }
 ```
 
@@ -2356,20 +2345,13 @@ demo/animation/shrink.component.ts
     delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
     easing?: string;        // 变化曲线，默认值 linear
     
-    // height 动画 duration 为原始 duration 的倍率，默认值 0.85
-    // height 变化需比 scaleY 快一些，否则视觉上 height 有拖沓感
-    heightDurationRate?: number;
+    // 动画在 0%   偏移量处的 opacity, scaleY 值，默认值 0, 0
+    percent0?: { opacity?: number; scaleY?: number };     
     
-    // 动画在 0%   偏移量处的 opacity, scaleY, height 值，默认值 0, 0, *
-    percent0?: { opacity?: number; scaleY?: number; height?: string };     
-    
-    // 动画在 100% 偏移量处的 opacity, scaleY, height 值，默认值 1, 1, *
-    percent100?: { opacity?: number; scaleY?: number; height?: string };  
+    // 动画在 100% 偏移量处的 opacity, scaleY 值，默认值 1, 1
+    percent100?: { opacity?: number; scaleY?: number };  
 }
 ```
-
-> height 通常不需要设置。scaleY 不会影响元素真实高度，动画未结束前父元素高度任然占据着，若需要处理这种情况，
-> 可设置 height 和 scaleY 同时变化
 
 ### shrinkInBottom
 
@@ -2390,15 +2372,11 @@ demo/animation/shrink.component.ts
     delay?: number;         // 延时时间，单位毫秒(ms)，默认值 0
     easing?: string;        // 变化曲线，默认值 linear
     
-    // height 动画 duration 为原始 duration 的倍率，默认值 0.85
-    // height 变化需比 scaleY 快一些，否则视觉上 height 有拖沓感
-    heightDurationRate?: number;
+    // 动画在 0%   偏移量处的 opacity, scaleY 值，默认值 1, 1
+    percent0?: { opacity?: number; scaleY?: number };     
     
-    // 动画在 0%   偏移量处的 opacity, scaleY, height 值，默认值 1, 1, *
-    percent0?: { opacity?: number; scaleY?: number; height?: string };     
-    
-    // 动画在 100% 偏移量处的 opacity, scaleY, height 值，默认值 0, 0, *
-    percent100?: { opacity?: number; scaleY?: number; height?: string };  
+    // 动画在 100% 偏移量处的 opacity, scaleY 值，默认值 0, 0
+    percent100?: { opacity?: number; scaleY?: number };  
 }
 ```
 
