@@ -44,6 +44,8 @@ export class ExampleComponent {
 ## bounce-drop
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/bounce-drop.component.html
 demo/animation/bounce-drop.component.ts
 ```
 
@@ -76,6 +78,8 @@ demo/animation/bounce-drop.component.ts
 ## flash
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/flash.component.html
 demo/animation/flash.component.ts
 ```
 
@@ -108,6 +112,8 @@ demo/animation/flash.component.ts
 ## pulse
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/pulse.component.html
 demo/animation/pulse.component.ts
 ```
 
@@ -138,6 +144,8 @@ demo/animation/pulse.component.ts
 ## rubber-band
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/rubber-band.component.html
 demo/animation/rubber-band.component.ts
 ```
 
@@ -172,6 +180,8 @@ demo/animation/rubber-band.component.ts
 ## shake
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/shake.component.html
 demo/animation/shake.component.ts
 ```
 
@@ -209,6 +219,8 @@ demo/animation/shake.component.ts
 ## swing
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/swing.component.html
 demo/animation/swing.component.ts
 ```
 
@@ -242,6 +254,8 @@ demo/animation/swing.component.ts
 ## tada
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/tada.component.html
 demo/animation/tada.component.ts
 ```
 
@@ -280,6 +294,8 @@ demo/animation/tada.component.ts
 ## wobble
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/wobble.component.html
 demo/animation/wobble.component.ts
 ```
 
@@ -323,6 +339,8 @@ demo/animation/wobble.component.ts
 ## jello
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/jello.component.html
 demo/animation/jello.component.ts
 ```
 
@@ -359,6 +377,8 @@ demo/animation/jello.component.ts
 ## heart-beat
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/heart-beat.component.html
 demo/animation/heart-beat.component.ts
 ```
 
@@ -397,6 +417,8 @@ demo/animation/heart-beat.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/bounce.component.html
 demo/animation/bounce.component.ts
 ```
 
@@ -730,6 +752,8 @@ demo/animation/bounce.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/slide.component.html
 demo/animation/slide.component.ts
 ```
 
@@ -1030,6 +1054,8 @@ demo/animation/slide.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/fade.component.html
 demo/animation/fade.component.ts
 ```
 
@@ -1199,6 +1225,8 @@ demo/animation/fade.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/flip.component.html
 demo/animation/flip.component.ts
 ```
 
@@ -1377,6 +1405,8 @@ demo/animation/flip.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/light-speed.component.html
 demo/animation/light-speed.component.ts
 ```
 
@@ -1443,6 +1473,8 @@ demo/animation/light-speed.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/rotate.component.html
 demo/animation/rotate.component.ts
 ```
 
@@ -1813,6 +1845,8 @@ demo/animation/rotate.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/zoom.component.html
 demo/animation/zoom.component.ts
 ```
 
@@ -2113,6 +2147,8 @@ demo/animation/zoom.component.ts
 ## hinge
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/hinge.component.html
 demo/animation/hinge.component.ts
 ```
 
@@ -2147,6 +2183,8 @@ demo/animation/hinge.component.ts
 ## jack-in-the-box
 
 ``` angular-files
+demo/animation/style.less
+demo/animation/jack-in-the-box.component.html
 demo/animation/jack-in-the-box.component.ts
 ```
 
@@ -2185,6 +2223,8 @@ demo/animation/jack-in-the-box.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/roll.component.html
 demo/animation/roll.component.ts
 ```
 
@@ -2245,6 +2285,8 @@ demo/animation/roll.component.ts
   }
 }
 
+demo/animation/style.less
+demo/animation/shrink.component.html
 demo/animation/shrink.component.ts
 ```
 
