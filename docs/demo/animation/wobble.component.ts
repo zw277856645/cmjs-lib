@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { wobbleIn, wobble } from 'cmjs-lib';
+import { wobbleIn, wobble } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './wobble.component.html',

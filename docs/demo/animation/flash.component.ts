@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { flash, flashIn } from 'cmjs-lib';
+import { flash, flashIn } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './flash.component.html',

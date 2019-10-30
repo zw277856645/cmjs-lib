@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { pulseIn, pulse } from 'cmjs-lib';
+import { pulseIn, pulse } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './pulse.component.html',

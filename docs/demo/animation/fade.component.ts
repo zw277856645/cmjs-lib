@@ -3,7 +3,7 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import {
     fadeIn, fadeOut, fade, fadeLeft, fadeRight, fadeLeftToRight, fadeRightToLeft, fadeTop, fadeBottom, fadeTopToBottom,
     fadeBottomToTop
-} from 'cmjs-lib';
+} from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './fade.component.html',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { jackInTheBoxIn, jackInTheBox } from 'cmjs-lib';
+import { jackInTheBoxIn, jackInTheBox } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './jack-in-the-box.component.html',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { lightSpeedIn, lightSpeedOut, lightSpeed } from 'cmjs-lib';
+import { lightSpeedIn, lightSpeedOut, lightSpeed } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './light-speed.component.html',

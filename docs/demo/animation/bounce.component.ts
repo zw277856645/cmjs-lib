@@ -4,7 +4,7 @@ import {
     bounceIn, bounceOut, bounce, bounceInLeft, bounceOutLeft, bounceInRight, bounceOutRight, bounceLeft, bounceRight,
     bounceLeftToRight, bounceRightToLeft, bounceInTop, bounceOutTop, bounceInBottom, bounceOutBottom, bounceTop,
     bounceBottom, bounceTopToBottom, bounceBottomToTop
-} from 'cmjs-lib';
+} from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './bounce.component.html',

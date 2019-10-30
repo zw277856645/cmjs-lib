@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { heartBeatIn, heartBeat } from 'cmjs-lib';
+import { heartBeatIn, heartBeat } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './heart-beat.component.html',

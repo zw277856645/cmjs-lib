@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { rubberBandIn, rubberBand } from 'cmjs-lib';
+import { rubberBandIn, rubberBand } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './rubber-band.component.html',

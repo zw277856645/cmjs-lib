@@ -5,7 +5,7 @@ import {
     shrinkInBottom,
     shrinkInLeft, shrinkInRight, shrinkInTop, shrinkLeft, shrinkOutBottom, shrinkOutLeft, shrinkOutRight, shrinkOutTop,
     shrinkRight, shrinkTop
-} from 'cmjs-lib';
+} from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './shrink.component.html',

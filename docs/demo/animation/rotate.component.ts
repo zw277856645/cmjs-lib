@@ -5,7 +5,7 @@ import {
     rotateOutRightDown, rotateOutLeftUp, rotateOutRightUp, rotate, rotateLeftDown, rotateRightDown, rotateLeftUp,
     rotateRightUp, rotateLeftDownToUp, rotateLeftUpToDown, rotateRightDownToUp, rotateRightUpToDown,
     rotateLeftDownToRightUp, rotateLeftUpToRightDown, rotateRightUpToLeftDown, rotateRightDownToLeftUp
-} from 'cmjs-lib';
+} from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './rotate.component.html',

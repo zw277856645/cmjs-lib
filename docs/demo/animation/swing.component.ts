@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { swingIn, swing } from 'cmjs-lib';
+import { swingIn, swing } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './swing.component.html',

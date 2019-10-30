@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { flipIn, flip, flipInX, flipOutX, flipX, flipInY, flipOutY, flipY } from 'cmjs-lib';
+import { flipIn, flip, flipInX, flipOutX, flipX, flipInY, flipOutY, flipY } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './flip.component.html',

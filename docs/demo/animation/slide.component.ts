@@ -3,7 +3,7 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import {
     slideInLeft, slideInRight, slideOutLeft, slideOutRight, slideLeft, slideRight, slideLeftToRight, slideRightToLeft,
     slideInTop, slideInBottom, slideOutTop, slideOutBottom, slideTop, slideBottom, slideTopToBottom, slideBottomToTop
-} from 'cmjs-lib';
+} from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './slide.component.html',

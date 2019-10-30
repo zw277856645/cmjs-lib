@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { hingeOut, hinge } from 'cmjs-lib';
+import { hingeOut, hinge } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './hinge.component.html',

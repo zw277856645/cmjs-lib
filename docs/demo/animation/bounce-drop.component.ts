@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { bounceDropIn, bounceDrop } from 'cmjs-lib';
+import { bounceDrop, bounceDropIn } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './bounce-drop.component.html',

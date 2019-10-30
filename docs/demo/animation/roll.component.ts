@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { rollIn, rollOut, roll } from 'cmjs-lib';
+import { rollIn, rollOut, roll } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './roll.component.html',

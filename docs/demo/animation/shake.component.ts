@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { shakeIn, shake } from 'cmjs-lib';
+import { shakeIn, shake } from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './shake.component.html',

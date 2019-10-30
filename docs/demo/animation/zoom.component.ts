@@ -3,7 +3,7 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import {
     zoomIn, zoomOut, zoom, zoomInLeft, zoomInRight, zoomInTop, zoomInBottom, zoomOutLeft, zoomOutRight,
     zoomOutTop, zoomOutBottom, zoomLeft, zoomRight, zoomLeftToRight, zoomRightToLeft, zoomTop, zoomBottom
-} from 'cmjs-lib';
+} from '@demacia/cmjs-lib';
 
 @Component({
     templateUrl: './zoom.component.html',
