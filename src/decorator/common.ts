@@ -33,3 +33,15 @@ export function InputNumber(fallbackValue: number = 0) {
         }
     });
 }
+
+export function InputArray() {
+    return propDecoratorFactory((value: any) => {
+        if (Array.isArray(value)) {
+            return value;
+        } else if (value === null || value === undefined) {
+            return [];
+        } else {
+            return [ value ];
+        }
+    });
+}

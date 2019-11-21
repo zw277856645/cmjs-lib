@@ -56,7 +56,7 @@ class SampleClass {
 })
 class SampleClass {
 
-    @Input() InputBoolean() valid: boolean;
+    @Input() @InputBoolean() valid: boolean;
 }
 ```
 
@@ -106,7 +106,7 @@ class SampleClass {
 })
 class SampleClass {
 
-    @Input() InputNumber() max: number;
+    @Input() @InputNumber() max: number;
 }
 ```
 
@@ -119,4 +119,34 @@ class SampleClass {
 
 <!-- max = fallbackValue -->
 <sample max="any thing cannot parse to number"></sample>
+```
+
+## InputArray
+
+转化非数组属性值为数组，通常与输入属性装饰器 @Input() 配和使用，免去在代码逻辑中再对属性做容错处理
+
+**InputArray()**
+
+示例：
+
+```js
+@Component({
+    selector: 'sample',
+    ...
+})
+class SampleClass {
+
+    @Input() @InputArray() values: any[];
+}
+```
+
+```html
+<!-- values = [ 1, 2 ] -->
+<sample [values]="[ 1, 2 ]"></sample>
+
+<!-- values = [ 1 ] -->
+<sample [values]="1"></sample>
+
+<!-- values = [] -->
+<sample values></sample>
 ```
