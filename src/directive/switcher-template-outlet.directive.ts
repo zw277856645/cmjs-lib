@@ -14,8 +14,7 @@ export class SwitcherTemplateOutletDirective implements OnChanges {
 
     @Input() switcherTemplateOutletContext: any | null = null;
 
-    @Input()
-    set nzStringTemplateOutlet(value: string | TemplateRef<any>) {
+    @Input() set switcherTemplateOutlet(value: string | TemplateRef<any>) {
         if (value instanceof TemplateRef) {
             this.isTemplate = true;
             this.inputTemplate = value;
