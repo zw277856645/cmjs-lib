@@ -137,25 +137,7 @@
 - y：需要滚动到的 y 轴位置
 - callback：滚动结束回调
 
-## 杂项集合
-
-### uuid
-
-唯一标识
-
-**uuid(`len`: number, `radix`?: number): string**
-
-- len：生成的 uuid 长度
-- radix：随机种子，通常不需要设置
-
-### deepExtend
-
-深度继承
-
-**deepExtend(`out`: any, ...`args`: any[]): any**
-
-- out：继承后输出的对象
-- args：待继承的对象列表
+## 异步处理
 
 ### async2Observable
 
@@ -179,3 +161,33 @@ export function async2Observable(fn: any): Observable<any> {
     }
 }
 ```
+
+### waitFor
+
+等待直到条件成立
+
+**waitFor&lt;T&gt;(`condition`: () => boolean, `mapValue`?: T, `limit`: number = 15): Observable&lt;T&gt;**
+
+- condition：检验条件函数
+- mapValue：条件成功时映射的值，作为后续操作的回调参数
+- limit：最大检查次数，可设置为 0、false 等空值以无限检查 
+
+## 杂项集合
+
+### uuid
+
+唯一标识
+
+**uuid(`len`: number, `radix`?: number): string**
+
+- len：生成的 uuid 长度
+- radix：随机种子，通常不需要设置
+
+### deepExtend
+
+深度继承
+
+**deepExtend(`out`: any, ...`args`: any[]): any**
+
+- out：继承后输出的对象
+- args：待继承的对象列表
