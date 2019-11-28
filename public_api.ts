@@ -4,6 +4,7 @@ export * from './src/util/common';
 export * from './src/util/dom';
 export * from './src/util/file';
 export * from './src/util/scroll';
+export * from './src/util/async';
 
 export * from './src/decorator/common';
 export * from './src/decorator/local-storage';
