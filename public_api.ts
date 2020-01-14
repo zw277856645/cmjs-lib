@@ -16,3 +16,5 @@ export * from './src/service/session-storage.service';
 export * from './src/animation/index';
 
 export * from './src/directive/switcher-template-outlet.directive';
+
+export * from './src/component/contents-loading.component';

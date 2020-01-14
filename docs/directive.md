@@ -2,7 +2,9 @@
 
 常用 angular 指令(@Directive)
 
-## *switcherTemplateOutlet
+## SwitcherTemplateOutletDirective
+
+选择器：`*switcherTemplateOutlet`
 
 切换`普通输入`或`模板(TemplateRef)输入`的结构型指令
 

@@ -1,6 +1,6 @@
 window.$docsify = {
     loadSidebar: true,
-    subMaxLevel: 3,
+    subMaxLevel: 4,
     coverpage: true,
     auto2top: true,
     homepage: 'animation.md',

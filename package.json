@@ -1,6 +1,6 @@
 {
   "name": "@demacia/cmjs-lib",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "angular common js lib",
   "scripts": {
     "build": "ng-packagr -p package.json",
@@ -12,7 +12,8 @@
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "ngPackage": {
     "lib": {
-      "entryFile": "public_api.ts"
+      "entryFile": "public_api.ts",
+      "cssUrl": "inline"
     }
   },
   "repository": {
