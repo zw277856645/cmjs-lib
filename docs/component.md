@@ -77,12 +77,10 @@ css 选择器方式
 </contents-loading>
 
 <!-- 省略参数，代表以指令本身子元素为容器指引，此方式与上面示例等效 -->
-<contents-loading>
-  <div class="container">
-    <!-- 待加载的内容 -->
-    ...
-  </div>
-</contents-loading>
+<div class="container" contentsLoading>
+  <!-- 待加载的内容 -->
+  ...
+</div>
 ```
 
 `css 选择器可以设置为尚未渲染的元素`
@@ -115,10 +113,8 @@ loading 是否为全屏，false 时代表在指令`父元素`上应用动画。
 ``` html
 <div class="parent">
   <contents-loading [fullScreen]="false">
-    <div class="container">
-      <!-- 待加载的内容 -->
-      ...
-    </div>
+    <!-- 待加载的内容 -->
+    ...
   </contents-loading>
 </div>
 
