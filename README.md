@@ -5,7 +5,6 @@
 - 常用装饰器(@annotation)
 - 常用全局服务(root)
 - 常用指令(directive)
-- 常用组件(component)
 - 常用方法集合
 
 ## 🔗 链接

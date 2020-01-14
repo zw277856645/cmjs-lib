@@ -2,5 +2,4 @@
 - [装饰器](decorator.md)
 - [服务](service.md)
 - [指令](directive.md)
-- [组件](component.md)
 - [工具](util.md)

@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
 import { SwitcherTemplateOutletDirective } from './directive/switcher-template-outlet.directive';
 import { CommonModule } from '@angular/common';
-import { ContentsLoadingComponent } from './component/contents-loading.component';
 
 const directives = [
     SwitcherTemplateOutletDirective
-];
-
-const COMPONENTS = [
-    ContentsLoadingComponent
 ];
 
 @NgModule({
@@ -16,12 +11,10 @@ const COMPONENTS = [
         CommonModule
     ],
     declarations: [
-        ...directives,
-        ...COMPONENTS
+        ...directives
     ],
     exports: [
-        ...directives,
-        ...COMPONENTS
+        ...directives
     ]
 })
 export class CmjsLibModule {
