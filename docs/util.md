@@ -166,11 +166,12 @@ export function async2Observable(fn: any): Observable<any> {
 
 等待直到条件成立
 
-**waitFor&lt;T&gt;(`condition`: () => boolean, `mapValue`?: T, `limit`: number = 15): Observable&lt;T&gt;**
+**waitFor&lt;T&gt;(`condition`: () => boolean, `mapValue`?: T, `limit`: number = 15, `timerGap`: number = 100): Observable&lt;T&gt;**
 
 - condition：检验条件函数
 - mapValue：条件成功时映射的值，作为后续操作的回调参数
 - limit：最大检查次数，可设置为 0、false 等空值以无限检查 
+- timerGap：检查的时间间隔
 
 ## 杂项集合
 
