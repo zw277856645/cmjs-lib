@@ -2,15 +2,15 @@ import { from, Observable, of, timer } from 'rxjs';
 import { first, map, skipWhile } from 'rxjs/operators';
 
 // 等待某条件成立
-export function waitFor(
+export function waitFor<T>(
     condition: () => any,
-    mapValue?: any | (() => any),
+    mapValue?: T | (() => T),
     limit: number = 15,
     timerGap: number = 100
-): Observable<any> {
+): Observable<T> {
     let valueFn = () => {
         if (typeof mapValue === 'function') {
-            return mapValue();
+            return (mapValue as Function)();
         } else if (mapValue !== undefined) {
             return mapValue;
         } else {
