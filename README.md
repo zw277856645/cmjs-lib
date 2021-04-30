@@ -8,4 +8,4 @@
 - 常用方法集合
 
 ## 🔗 链接
-- [DOCS](https://zw277856645.gitlab.io/cmjs-lib)
+- [DOCS](https://zw277856645.github.io/cmjs-lib/)
