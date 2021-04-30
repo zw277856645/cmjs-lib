@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="item">
+    <div class="head">
+      <div class="title">lightSpeedIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@lightSpeedIn]="lightSpeedInState"
+           (@lightSpeedIn.done)="lightSpeedInState = 'stop'"
+           (click)="lightSpeedInState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">lightSpeedOut</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@lightSpeedOut]="lightSpeedOutState"
+           (@lightSpeedOut.done)="lightSpeedOutState = 'stop'"
+           (click)="lightSpeedOutState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">lightSpeed</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="show" @lightSpeed>Animate</div>
+      <button class="button" (click)="show = !show">Click me</button>
+    </div>
+  </div>
+</div>

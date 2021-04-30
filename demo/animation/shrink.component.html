@@ -1,0 +1,169 @@
+<div class="container">
+  <div class="section">shrink - 水平方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkInLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkInLeft]="shrinkInLeftState"
+           (@shrinkInLeft.done)="shrinkInLeftState = 'stop'"
+           (click)="shrinkInLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkInRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkInRight]="shrinkInRightState"
+           (@shrinkInRight.done)="shrinkInRightState = 'stop'"
+           (click)="shrinkInRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkOutLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkOutLeft]="shrinkOutLeftState"
+           (@shrinkOutLeft.done)="shrinkOutLeftState = 'stop'"
+           (click)="shrinkOutLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkOutRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkOutRight]="shrinkOutRightState"
+           (@shrinkOutRight.done)="shrinkOutRightState = 'stop'"
+           (click)="shrinkOutRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="shrinkLeftShow" @shrinkLeft>Animate</div>
+      <button class="button" (click)="shrinkLeftShow = !shrinkLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="shrinkRightShow" @shrinkRight>Animate</div>
+      <button class="button" (click)="shrinkRightShow = !shrinkRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">shrink - 垂直方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkInTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkInTop]="shrinkInTopState"
+           (@shrinkInTop.done)="shrinkInTopState = 'stop'"
+           (click)="shrinkInTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkInBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkInBottom]="shrinkInBottomState"
+           (@shrinkInBottom.done)="shrinkInBottomState = 'stop'"
+           (click)="shrinkInBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkOutTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkOutTop]="shrinkOutTopState"
+           (@shrinkOutTop.done)="shrinkOutTopState = 'stop'"
+           (click)="shrinkOutTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkOutBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@shrinkOutBottom]="shrinkOutBottomState"
+           (@shrinkOutBottom.done)="shrinkOutBottomState = 'stop'"
+           (click)="shrinkOutBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="shrinkTopShow" @shrinkTop>Animate</div>
+      <button class="button" (click)="shrinkTopShow = !shrinkTopShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">shrinkBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="shrinkBottomShow" @shrinkBottom>Animate</div>
+      <button class="button" (click)="shrinkBottomShow = !shrinkBottomShow">Click me</button>
+    </div>
+  </div>
+</div>

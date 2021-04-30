@@ -1,0 +1,298 @@
+<div class="container">
+  <div class="section">rotate - center</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateIn]="rotateInState"
+           (@rotateIn.done)="rotateInState = 'stop'"
+           (click)="rotateInState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateOut</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateOut]="rotateOutState"
+           (@rotateOut.done)="rotateOutState = 'stop'"
+           (click)="rotateOutState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotate</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateShow" @rotate>Animate</div>
+      <button class="button" (click)="rotateShow = !rotateShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">rotate - left/right/up/down</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateInLeftDown</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateInLeftDown]="rotateInLeftDownState"
+           (@rotateInLeftDown.done)="rotateInLeftDownState = 'stop'"
+           (click)="rotateInLeftDownState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateOutLeftDown</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateOutLeftDown]="rotateOutLeftDownState"
+           (@rotateOutLeftDown.done)="rotateOutLeftDownState = 'stop'"
+           (click)="rotateOutLeftDownState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateInRightDown</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateInRightDown]="rotateInRightDownState"
+           (@rotateInRightDown.done)="rotateInRightDownState = 'stop'"
+           (click)="rotateInRightDownState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateOutRightDown</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateOutRightDown]="rotateOutRightDownState"
+           (@rotateOutRightDown.done)="rotateOutRightDownState = 'stop'"
+           (click)="rotateOutRightDownState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateInLeftUp</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateInLeftUp]="rotateInLeftUpState"
+           (@rotateInLeftUp.done)="rotateInLeftUpState = 'stop'"
+           (click)="rotateInLeftUpState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateOutLeftUp</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateOutLeftUp]="rotateOutLeftUpState"
+           (@rotateOutLeftUp.done)="rotateOutLeftUpState = 'stop'"
+           (click)="rotateOutLeftUpState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateInRightUp</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateInRightUp]="rotateInRightUpState"
+           (@rotateInRightUp.done)="rotateInRightUpState = 'stop'"
+           (click)="rotateInRightUpState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateOutRightUp</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@rotateOutRightUp]="rotateOutRightUpState"
+           (@rotateOutRightUp.done)="rotateOutRightUpState = 'stop'"
+           (click)="rotateOutRightUpState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateLeftDown</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateLeftDownShow" @rotateLeftDown>Animate</div>
+      <button class="button" (click)="rotateLeftDownShow = !rotateLeftDownShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateRightDown</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateRightDownShow" @rotateRightDown>Animate</div>
+      <button class="button" (click)="rotateRightDownShow = !rotateRightDownShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateLeftUp</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateLeftUpShow" @rotateLeftUp>Animate</div>
+      <button class="button" (click)="rotateLeftUpShow = !rotateLeftUpShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateRightUp</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateRightUpShow" @rotateRightUp>Animate</div>
+      <button class="button" (click)="rotateRightUpShow = !rotateRightUpShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateLeftDownToUp</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateLeftDownToUpShow" @rotateLeftDownToUp>Animate</div>
+      <button class="button" (click)="rotateLeftDownToUpShow = !rotateLeftDownToUpShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateLeftUpToDown</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateLeftUpToDownShow" @rotateLeftUpToDown>Animate</div>
+      <button class="button" (click)="rotateLeftUpToDownShow = !rotateLeftUpToDownShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateRightDownToUp</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateRightDownToUpShow" @rotateRightDownToUp>Animate</div>
+      <button class="button" (click)="rotateRightDownToUpShow = !rotateRightDownToUpShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateRightUpToDown</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateRightUpToDownShow" @rotateRightUpToDown>Animate</div>
+      <button class="button" (click)="rotateRightUpToDownShow = !rotateRightUpToDownShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateLeftDownToRightUp</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateLeftDownToRightUpShow" @rotateLeftDownToRightUp>Animate</div>
+      <button class="button" (click)="rotateLeftDownToRightUpShow = !rotateLeftDownToRightUpShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateLeftUpToRightDown</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateLeftUpToRightDownShow" @rotateLeftUpToRightDown>Animate</div>
+      <button class="button" (click)="rotateLeftUpToRightDownShow = !rotateLeftUpToRightDownShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateRightUpToLeftDown</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateRightUpToLeftDownShow" @rotateRightUpToLeftDown>Animate</div>
+      <button class="button" (click)="rotateRightUpToLeftDownShow = !rotateRightUpToLeftDownShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">rotateRightDownToLeftUp</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="rotateRightDownToLeftUpShow" @rotateRightDownToLeftUp>Animate</div>
+      <button class="button" (click)="rotateRightDownToLeftUpShow = !rotateRightDownToLeftUpShow">Click me</button>
+    </div>
+  </div>
+</div>

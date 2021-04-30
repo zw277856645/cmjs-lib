@@ -1,0 +1,213 @@
+<div class="container">
+  <div class="section">slide - 水平方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideInLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideInLeft]="slideInLeftState"
+           (@slideInLeft.done)="slideInLeftState = 'stop'"
+           (click)="slideInLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideInRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideInRight]="slideInRightState"
+           (@slideInRight.done)="slideInRightState = 'stop'"
+           (click)="slideInRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideOutLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideOutLeft]="slideOutLeftState"
+           (@slideOutLeft.done)="slideOutLeftState = 'stop'"
+           (click)="slideOutLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideOutRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideOutRight]="slideOutRightState"
+           (@slideOutRight.done)="slideOutRightState = 'stop'"
+           (click)="slideOutRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideLeftShow" @slideLeft>Animate</div>
+      <button class="button" (click)="slideLeftShow = !slideLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideRightShow" @slideRight>Animate</div>
+      <button class="button" (click)="slideRightShow = !slideRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideLeftToRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideLeftToRightShow" @slideLeftToRight>Animate</div>
+      <button class="button" (click)="slideLeftToRightShow = !slideLeftToRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideRightToLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideRightToLeftShow" @slideRightToLeft>Animate</div>
+      <button class="button" (click)="slideRightToLeftShow = !slideRightToLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">slide - 垂直方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideInTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideInTop]="slideInTopState"
+           (@slideInTop.done)="slideInTopState = 'stop'"
+           (click)="slideInTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideInBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideInBottom]="slideInBottomState"
+           (@slideInBottom.done)="slideInBottomState = 'stop'"
+           (click)="slideInBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideOutTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideOutTop]="slideOutTopState"
+           (@slideOutTop.done)="slideOutTopState = 'stop'"
+           (click)="slideOutTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideOutBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@slideOutBottom]="slideOutBottomState"
+           (@slideOutBottom.done)="slideOutBottomState = 'stop'"
+           (click)="slideOutBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideTopShow" @slideTop>Animate</div>
+      <button class="button" (click)="slideTopShow = !slideTopShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideBottomShow" @slideBottom>Animate</div>
+      <button class="button" (click)="slideBottomShow = !slideBottomShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideTopToBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideTopToBottomShow" @slideTopToBottom>Animate</div>
+      <button class="button" (click)="slideTopToBottomShow = !slideTopToBottomShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">slideBottomToTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="slideBottomToTopShow" @slideBottomToTop>Animate</div>
+      <button class="button" (click)="slideBottomToTopShow = !slideBottomToTopShow">Click me</button>
+    </div>
+  </div>
+</div>

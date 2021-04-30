@@ -1,0 +1,256 @@
+<div class="container">
+  <div class="section">bounce</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceIn</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceIn]="bounceInState"
+           (@bounceIn.done)="bounceInState = 'stop'"
+           (click)="bounceInState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceOut</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceOut]="bounceOutState"
+           (@bounceOut.done)="bounceOutState = 'stop'"
+           (click)="bounceOutState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item full">
+    <div class="head">
+      <div class="title">bounce</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceShow" @bounce>Animate</div>
+      <button class="button" (click)="bounceShow = !bounceShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">bounce - 水平方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceInLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceInLeft]="bounceInLeftState"
+           (@bounceInLeft.done)="bounceInLeftState = 'stop'"
+           (click)="bounceInLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceOutLeft</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceOutLeft]="bounceOutLeftState"
+           (@bounceOutLeft.done)="bounceOutLeftState = 'stop'"
+           (click)="bounceOutLeftState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceInRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceInRight]="bounceInRightState"
+           (@bounceInRight.done)="bounceInRightState = 'stop'"
+           (click)="bounceInRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceOutRight</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceOutRight]="bounceOutRightState"
+           (@bounceOutRight.done)="bounceOutRightState = 'stop'"
+           (click)="bounceOutRightState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceLeftShow" @bounceLeft>Animate</div>
+      <button class="button" (click)="bounceLeftShow = !bounceLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceRightShow" @bounceRight>Animate</div>
+      <button class="button" (click)="bounceRightShow = !bounceRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceLeftToRight</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceLeftToRightShow" @bounceLeftToRight>Animate</div>
+      <button class="button" (click)="bounceLeftToRightShow = !bounceLeftToRightShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceRightToLeft</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceRightToLeftShow" @bounceRightToLeft>Animate</div>
+      <button class="button" (click)="bounceRightToLeftShow = !bounceRightToLeftShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="section">bounce - 垂直方向</div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceInTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceInTop]="bounceInTopState"
+           (@bounceInTop.done)="bounceInTopState = 'stop'"
+           (click)="bounceInTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceOutTop</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceOutTop]="bounceOutTopState"
+           (@bounceOutTop.done)="bounceOutTopState = 'stop'"
+           (click)="bounceOutTopState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceInBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceInBottom]="bounceInBottomState"
+           (@bounceInBottom.done)="bounceInBottomState = 'stop'"
+           (click)="bounceInBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceOutBottom</div>
+      <div class="meta">动画组件</div>
+    </div>
+    <div class="content">
+      <div class="anim"
+           [@bounceOutBottom]="bounceOutBottomState"
+           (@bounceOutBottom.done)="bounceOutBottomState = 'stop'"
+           (click)="bounceOutBottomState = 'run'">
+        Click me
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceTopShow" @bounceTop>Animate</div>
+      <button class="button" (click)="bounceTopShow = !bounceTopShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceBottomShow" @bounceBottom>Animate</div>
+      <button class="button" (click)="bounceBottomShow = !bounceBottomShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceTopToBottom</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceTopToBottomShow" @bounceTopToBottom>Animate</div>
+      <button class="button" (click)="bounceTopToBottomShow = !bounceTopToBottomShow">Click me</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <div class="title">bounceBottomToTop</div>
+      <div class="meta trigger">固定动画</div>
+    </div>
+    <div class="content">
+      <div class="anim" *ngIf="bounceBottomToTopShow" @bounceBottomToTop>Animate</div>
+      <button class="button" (click)="bounceBottomToTopShow = !bounceBottomToTopShow">Click me</button>
+    </div>
+  </div>
+</div>
