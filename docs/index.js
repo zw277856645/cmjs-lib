@@ -4,7 +4,7 @@ window.$docsify = {
     coverpage: true,
     auto2top: true,
     homepage: 'animation.md',
-    repo: 'https://gitlab.com/zw277856645/cmjs-lib',
+    repo: 'https://github.com/zw277856645/cmjs-lib',
     plugins: [
         DemoBoxAngular.create({
             project: {
