@@ -9,15 +9,13 @@ cache:
     - node_modules # 依赖缓存的目录
 before_install:
   - export TZ='Asia/Shanghai'  # 设置时区
-install:
-  - npm install -g gitbook-cli # 安装编译工具
 script:
-  - gitbook build
+  - cp -r docs/. _pages
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN # github 上的token环境变量
-  local-dir: ./build/ ## 根据情况自定义到静态文件输出目录
+  local-dir: ./_pages/ ## 根据情况自定义到静态文件输出目录
   target-branch: gh-pages
   verbose: true
   on:
